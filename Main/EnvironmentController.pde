@@ -33,4 +33,10 @@ class EnvironmentController
             rings[i] = new Ring(i + 1);            
         }
     }
+
+    
+    Ring[] getRings()
+    {
+        return rings;
+    }
 }

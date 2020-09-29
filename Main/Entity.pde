@@ -5,6 +5,7 @@ abstract class Entity
     PImage sprite;
     float size;
     float radius;
+    Ring currentRing;
 
     boolean isColliding(Entity target)
     {

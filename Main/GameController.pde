@@ -9,6 +9,7 @@ public class GameController
     public GameController () 
     {
         environmentController = new EnvironmentController();
+        playerController = new PlayerController(environmentController.getRings());
         gameState = GameState.isRunning;
     }
 
@@ -20,7 +21,7 @@ public class GameController
         {
             case isRunning:
                 environmentController.update();
-                //playerController.update();
+                playerController.update();
                 //waveController.update();
             break;
 
