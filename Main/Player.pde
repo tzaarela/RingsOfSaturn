@@ -6,6 +6,7 @@ public class Player extends Entity
     float bulletSpeed;
     float damage;
 
+    Ring currentRing;
     Powerup currentPowerup;
     MoveController moveController;
 
@@ -14,4 +15,13 @@ public class Player extends Entity
         
     }
 
+    public void shoot()
+    {
+
+    }
+
+    public void die()
+    {
+
+    }
 }
