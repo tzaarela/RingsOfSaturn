@@ -6,24 +6,35 @@ public class GameController
     EnvironmentController environmentController;
     ScoreController scoreController;
 
-
     public GameController () 
     {
-        player = new Player();
         environmentController = new EnvironmentController();
-        
+        gameState = GameState.isRunning;
     }
 
     public void update()
     {
+        background(0);
+
         switch (gameState)
         {
+            case isRunning:
+                environmentController.update();
+                //playerController.update();
+                //waveController.update();
+            break;
 
+            case isPaused:
+            break;
+
+            case isVictory:
+            break;
+
+            case isDefeat:
+            break;
         }
 
-        environmentController.update();
-        playerController.update();
-        waveController.update();
+
     }
     
     public void startGame()

@@ -1,0 +1,7 @@
+class WaveController
+{
+	void update()
+	{
+		
+	}
+}
