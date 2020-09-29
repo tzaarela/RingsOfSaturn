@@ -21,7 +21,7 @@ class EnvironmentController
             push();
             stroke(255);
             noFill();
-            ellipse(resolutionX / 2, resolutionY / 2, ring.radius, ring.radius);
+            ellipse(resolutionX / 2, resolutionY / 2, ring.radius * 2, ring.radius * 2);
             pop();
         }
     }

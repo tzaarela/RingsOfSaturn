@@ -12,6 +12,7 @@ public class Player extends Entity
     public Player (Ring currentRing) 
     {
         this.currentRing = currentRing;
+        this.size = 40;
     }
 
     public void shoot()

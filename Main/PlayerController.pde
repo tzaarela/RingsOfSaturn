@@ -15,5 +15,14 @@ class PlayerController
 	void update()
 	{
 		moveController.lineMove(getInputVector());
+		draw();
+	}
+
+	void draw()
+	{
+		push();
+		fill(255);
+		ellipse(player.position.x, player.position.y, player.size, player.size);
+		pop();
 	}
 }

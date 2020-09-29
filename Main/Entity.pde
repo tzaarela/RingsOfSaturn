@@ -7,6 +7,12 @@ abstract class Entity
     float radius;
     Ring currentRing;
 
+    Entity()
+    {
+        this.position = new PVector();
+        this.velocity = new PVector();
+    }
+
     boolean isColliding(Entity target)
     {
         return false;

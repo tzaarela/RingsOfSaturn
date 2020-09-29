@@ -11,7 +11,7 @@ public class Ring
 
     void create(float level)
     {
-        radius = level * 120;
+        radius = level * 60;
     }
 
 }
