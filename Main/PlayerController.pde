@@ -15,6 +15,8 @@ class PlayerController
 	void update()
 	{
 		moveController.lineMove(getInputVector());
+		moveController.lineStep(getInputVector(), rings);
+		player.shoot();
 		draw();
 	}
 

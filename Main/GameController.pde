@@ -15,6 +15,7 @@ public class GameController
 
     public void update()
     {
+        translate(resolutionX / 2, resolutionY / 2);
         background(0);
 
         switch (gameState)

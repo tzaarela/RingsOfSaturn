@@ -21,7 +21,7 @@ class EnvironmentController
             push();
             stroke(255);
             noFill();
-            ellipse(resolutionX / 2, resolutionY / 2, ring.radius * 2, ring.radius * 2);
+            ellipse(0, 0, ring.radius * 2, ring.radius * 2);
             pop();
         }
     }
@@ -30,7 +30,7 @@ class EnvironmentController
     {
         for (int i = 0; i < rings.length; i++) 
         {
-            rings[i] = new Ring(i + 1);            
+            rings[i] = new Ring(i);            
         }
     }
 

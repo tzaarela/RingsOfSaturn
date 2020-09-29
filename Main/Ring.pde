@@ -1,17 +1,17 @@
 public class Ring  
 {
     float radius;
-    float level;
+    int level;
 
-    public Ring(float level)
+    public Ring(int level)
     {
         this.level = level;
         create(level);
     }
 
-    void create(float level)
+    void create(int level)
     {
-        radius = level * 60;
+        radius = (level + 1) * 60;
     }
 
 }
