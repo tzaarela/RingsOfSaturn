@@ -40,6 +40,11 @@ public class MoveController
 			object.position.add(PVector.mult(object.velocity, deltaTime * velocityMultiplier));
 			break;
 		}
-		object.inMotion = true;
 	}
+}
+
+
+enum ForceType
+{
+	CONSTANT;
 }

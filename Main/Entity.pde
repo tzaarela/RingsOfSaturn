@@ -8,6 +8,6 @@ abstract class Entity
 
     boolean isColliding(Entity target)
     {
-
+        return false;
     }
 }

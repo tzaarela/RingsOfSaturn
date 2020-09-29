@@ -2,13 +2,12 @@ public class Projectile extends Entity
 {
     float damage;
 
-    public Projectile (float damage, PVector velocity, PVector position, PImage image) 
+    public Projectile (float damage, PVector velocity, PVector position, PImage sprite) 
     {
         this.position = position;
         this.velocity = velocity;
         this.size = size;
-        this.image = image;
+        this.sprite = sprite;
         this.damage = damage;
     }
-
 }

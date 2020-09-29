@@ -1,16 +1,17 @@
 public class Ring  
 {
-    PVector path;
+    float radius;
     float level;
 
     public Ring(float level)
     {
         this.level = level;
+        create(level);
     }
 
-    public void calculatePath()
+    void create(float level)
     {
-        
+        radius = level * 120;
     }
 
 }
