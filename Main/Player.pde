@@ -1,27 +1,20 @@
-public class Player extends Entity 
+class Player extends Entity 
 {
     float health;
     float maxSpeed;
     float ammoLimit;
     float bulletSpeed;
     float damage;
+    float jumpCooldown;
 
     Powerup currentPowerup;
-    MoveController moveController;
 
-    public Player (Ring currentRing) 
+
+    Player (Ring currentRing) 
     {
         this.currentRing = currentRing;
         this.size = 40;
+        this.jumpCooldown = 250;
     }
 
-    public void shoot()
-    {
-
-    }
-
-    public void die()
-    {
-
-    }
 }

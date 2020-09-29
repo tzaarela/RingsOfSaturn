@@ -11,6 +11,7 @@ void setup()
 {
 	surface.setSize(resolutionX, resolutionY);
 	surface.setLocation(0, 0);
+
 	gameController = new GameController();
 }
 

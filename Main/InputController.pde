@@ -1,4 +1,4 @@
-boolean isLeft, isRight, isUp, isDown;
+boolean isLeft, isRight, isUp, isDown, isFiring;
 
 void keyPressed()
 {
@@ -36,6 +36,10 @@ void setInputs(int keyCode, boolean isPressed)
 
         case 'S' :
         isDown = isPressed;
+        break;	
+
+        case ' ' :
+        isFiring = isPressed;
         break;	
     }
 }

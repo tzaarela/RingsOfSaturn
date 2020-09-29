@@ -1,8 +1,15 @@
-public class Projectile extends Entity 
+class Projectile extends Entity 
 {
     float damage;
 
-    public Projectile (float damage, PVector velocity, PVector position, PImage sprite) 
+    Projectile (PVector position, PVector veolocity) 
+    {
+        this.position = position;
+        this.velocity = velocity;
+        this.size = 20;        
+    }
+
+    Projectile (float damage, PVector velocity, PVector position, PImage sprite) 
     {
         this.position = position;
         this.velocity = velocity;
@@ -10,4 +17,5 @@ public class Projectile extends Entity
         this.sprite = sprite;
         this.damage = damage;
     }
+
 }
