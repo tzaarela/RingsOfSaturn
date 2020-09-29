@@ -18,8 +18,11 @@ class ProjectileController
     void draw()
     {
 		for (Projectile projectile : projectiles) 
-		{
+		{	
+			push();
+			fill(255);
 			ellipse(projectile.position.x, projectile.position.y, projectile.size, projectile.size);
+			pop();
 		}
     }
 
@@ -28,17 +31,24 @@ class ProjectileController
 		for (Projectile projectile : projectiles) 
 		{
 			projectile.position.add(projectile.velocity);
-			println("Projectile Position X: " + projectile.position.x);
-			println("Projectile Position Y: " + projectile.position.y);
+			// println("Projectile velocity X: " + projectile.velocity.x);
+			// println("Projectile velocity Y: " + projectile.velocity.y);
+
+
+			// println("Projectile Position X: " + projectile.position.x);
+			// println("Projectile Position Y: " + projectile.position.y);
 		}
     }
 
 	void spawnBullet(PVector startPosition, float speed)
 	{
-		PVector direction = PVector.mult(startPosition, -1).normalize();
-		PVector velocity = direction.mult(speed);
+		PVector direction =  startPosition.copy().mult(-1).normalize();
+		println(direction.x);
+		println(direction.y);
 
-        Projectile projectile = new Projectile(startPosition, velocity);
+		PVector velocity = direction.mult(speed);
+		println("velocity X: " + velocity.x);
+        Projectile projectile = new Projectile(startPosition.copy(), velocity);
 		projectiles.add(projectile);
 	}
 

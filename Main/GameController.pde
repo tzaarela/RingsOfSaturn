@@ -5,6 +5,7 @@ public class GameController
     PlayerController playerController;
     EnvironmentController environmentController;
     ScoreController scoreController;
+    color[] colors;
 
     public GameController () 
     {
@@ -17,6 +18,8 @@ public class GameController
     {
         translate(resolutionX / 2, resolutionY / 2);
         background(0);
+        
+        
 
         switch (gameState)
         {
@@ -35,8 +38,6 @@ public class GameController
             case isDefeat:
             break;
         }
-
-
     }
     
     public void startGame()

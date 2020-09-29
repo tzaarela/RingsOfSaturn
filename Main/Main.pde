@@ -1,5 +1,5 @@
-int resolutionX = 1280;
-int resolutionY = 720;
+int resolutionX = 1920;
+int resolutionY = 1080;
 
 float time;
 float oldTime;
@@ -9,17 +9,18 @@ GameController gameController;
 
 void setup() 
 {
-	surface.setSize(resolutionX, resolutionY);
-	surface.setLocation(0, 0);
-
-	gameController = new GameController();
+  surface.setSize(resolutionX, resolutionY);
+  surface.setLocation(0, 0);
+  gameController = new GameController();
+  frameRate(300);
 }
 
 void draw() 
 {
-	calculateDeltaTime("START");
+  
+  calculateDeltaTime("START");
 
-    gameController.update();
+  gameController.update();
 
 	calculateDeltaTime("END");
 }

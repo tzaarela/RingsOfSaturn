@@ -2,7 +2,7 @@ public class MoveController
 {
 
 	float angle = 0f;
-	float rotateSpeed = 150f;
+	float rotateSpeed = 300f;
 	float stepTime = 0f;
 	Entity entity;
 

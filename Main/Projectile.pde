@@ -2,11 +2,11 @@ class Projectile extends Entity
 {
     float damage;
 
-    Projectile (PVector position, PVector veolocity) 
+    Projectile (PVector position, PVector velocity) 
     {
         this.position = position;
         this.velocity = velocity;
-        this.size = 20;        
+        this.size = 10;        
     }
 
     Projectile (float damage, PVector velocity, PVector position, PImage sprite) 
