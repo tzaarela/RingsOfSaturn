@@ -6,13 +6,12 @@ public class Player extends Entity
     float bulletSpeed;
     float damage;
 
-    Ring currentRing;
     Powerup currentPowerup;
     MoveController moveController;
 
-    public Player () 
+    public Player (Ring currentRing) 
     {
-        
+        this.currentRing = currentRing;
     }
 
     public void shoot()
