@@ -3,12 +3,14 @@ class PlayerController
 	Player player;
 	Ring[] rings;
 	MoveController moveController;
+	ProjectileController projectileController;
 
 
 	PlayerController(Ring[] rings)
 	{
 		player = new Player(rings[rings.length - 1]);
 		moveController = new MoveController(player);
+		projectileController = new ProjectileController(player);
 		this.rings = rings;
 	}
 
@@ -16,7 +18,11 @@ class PlayerController
 	{
 		moveController.lineMove(getInputVector());
 		moveController.lineStep(getInputVector(), rings);
-		player.shoot();
+		projectileController.update();
+
+        if (isFiring)
+			shoot();
+
 		draw();
 	}
 
@@ -27,4 +33,15 @@ class PlayerController
 		ellipse(player.position.x, player.position.y, player.size, player.size);
 		pop();
 	}
+
+	void shoot()
+    {
+		projectileController.spawnBullet(player.position, 10);
+		//println("Shooting");
+    }
+
+    void die()
+    {
+
+    }
 }

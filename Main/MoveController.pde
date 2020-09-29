@@ -35,7 +35,7 @@ public class MoveController
 		float currentTime = millis();
 
 		//println("Current ring level: " + entity.currentRing.level);
-		println("Input Y: " + input.y);
+		//println("Input Y: " + input.y);
 
 		if (currentTime - stepTime > ((Player)entity).jumpCooldown)
 		{			

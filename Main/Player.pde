@@ -8,7 +8,7 @@ class Player extends Entity
     float jumpCooldown;
 
     Powerup currentPowerup;
-    MoveController moveController;
+
 
     Player (Ring currentRing) 
     {
@@ -17,19 +17,4 @@ class Player extends Entity
         this.jumpCooldown = 250;
     }
 
-    void shoot()
-    {
-        if (isFiring)
-        {
-            PVector direction = PVector.mult(this.position, -1);
-            Projectile projectile = new Projectile(direction);
-
-            ellipse(projectile.position.x, projectile.position.y, projectile.size, projectile.size);
-        }
-    }
-
-    void die()
-    {
-
-    }
 }
