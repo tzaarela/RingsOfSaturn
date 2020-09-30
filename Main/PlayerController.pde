@@ -1,5 +1,6 @@
 class PlayerController
 {
+	float lastShotTime;
 	Player player;
 	Ring[] rings;
 	MoveController moveController;
@@ -38,7 +39,13 @@ class PlayerController
 
 	void shoot()
     {
-		projectileController.spawnBullet(player.position, 10);
+		float currentTime = millis();
+
+		if (currentTime - lastShotTime > player.fireCooldown)
+		{
+			projectileController.spawnBullet(player.position, 8);
+			lastShotTime = currentTime;
+		}
     }
 
     void die()

@@ -4,6 +4,7 @@ public class GameController
     WaveController waveController;
     PlayerController playerController;
     EnvironmentController environmentController;
+    CollisionController collisionController;
     ScoreController scoreController;
     color[] colors;
     PImage bg;
@@ -12,6 +13,9 @@ public class GameController
     {
         environmentController = new EnvironmentController();
         playerController = new PlayerController(environmentController.getRings());
+        waveController = new WaveController(playerController.player);
+        collisionController = new CollisionController();
+
         gameState = GameState.isRunning;
         bg = loadImage("space.jpg");
     }
@@ -26,7 +30,10 @@ public class GameController
             case isRunning:
                 environmentController.update();
                 playerController.update();
-                //waveController.update();
+                waveController.update();
+                collisionController.update(playerController.player,
+                    waveController.currentWave.enemies,
+                    playerController.projectileController.projectiles);
             break;
 
             case isPaused:

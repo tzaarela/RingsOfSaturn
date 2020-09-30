@@ -1,0 +1,99 @@
+public class Wave  
+{
+	float totalEnemies;
+	float spawnCount;
+	float level;
+	float modeTime;
+	ArrayList<Enemy> enemies;
+	Player player;
+
+	public Wave(float level, Player player) 
+	{
+		this.level = level;
+		this.player = player;
+		this.totalEnemies = level * 1;
+		enemies = new ArrayList<Enemy>();
+	}
+
+	void update()
+	{
+		for (int i = 0; i < enemies.size(); ++i) 
+		{
+			Enemy enemy = enemies.get(i);
+			if(enemy.isDead)
+			{
+				destroyEnemy(enemy);
+			}
+
+			push();
+				translate(enemy.position.x, enemy.position.y);
+				float playerRadians = (float)Math.atan2(
+					player.position.x - enemy.position.x,
+					player.position.y - enemy.position.y) * -1;	
+				rotate(playerRadians);
+
+				// println("angle: " + degrees(radians));
+				println("PlayerX: " + player.position.x);
+				println("PlayerY: " + player.position.y);
+				println("EnemyX: " + enemy.position.x);
+				println("EnemyY: " + enemy.position.y);
+
+				moveEnemy(enemy);
+				draw(enemy);
+			pop();	
+		}
+	}
+
+	void draw(Enemy enemy)
+	{
+		image(enemy.sprite, 0, 0, enemy.size, enemy.size);	
+	}
+
+	void moveEnemy(Enemy enemy)
+	{
+		float currentTime = millis();
+
+		if (currentTime - modeTime > enemy.circleTime)
+		{
+			enemy.mode = EnemyMode.isSuiciding;
+			modeTime = currentTime;
+		}
+
+		switch (enemy.mode) 
+		{
+			case isCircling :
+				// enemy.position.add()
+			break;
+
+			case isSuiciding :
+				enemy.position.add(enemy.velocity);
+			break;
+		}
+	}
+
+	void destroyEnemy(Enemy target)
+	{
+		enemies.remove(target);
+		println("Enemy destroyed");
+	}
+	
+	void spawnEnemy()
+	{
+		if (spawnCount < totalEnemies)
+		{
+			float health = 10;
+			float damage = 2;
+			
+			enemies.add
+			(
+				new Enemy(health, damage, new PVector(random(-75, 75), random(-75, 75)),
+				new PVector(random(-1, 1), random(-1, 1)),
+				EnemyMode.isCircling)
+			);
+
+			spawnCount++;
+			println("Spawn Enemy");
+		}
+	}
+
+}

@@ -59,6 +59,7 @@ class EnvironmentController
     {
         for (int i = 0; i < numberOfRings; i++) 
         {
+            push();
             noFill();
             // if(i == 0)
             // {
@@ -76,6 +77,7 @@ class EnvironmentController
             stroke(colors[i % 3], 100);
             strokeWeight(80);
             ellipse(0, 0, (i+1) * 140 * 2 , (i+1) * 280 * resolutionScaling);
+            pop();
         }
     }
     

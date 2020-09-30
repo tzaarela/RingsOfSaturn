@@ -15,6 +15,19 @@ abstract class Entity
 
     boolean isColliding(Entity target)
     {
-        return false;
+        float maxDistance = this.size / 2 + target.size / 2;
+
+        if(abs(this.position.x - target.position.x) > maxDistance ||  
+            abs(this.position.y - target.position.y) > maxDistance)
+        {
+            return false;
+        }
+        
+        else if(dist(this.position.x, this.position.y, target.position.x, target.position.y) > maxDistance)
+        {
+            return false;
+        }
+        
+        return true;
     }
 }

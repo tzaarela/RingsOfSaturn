@@ -1,20 +1,13 @@
 class Projectile extends Entity 
 {
     float damage;
+    boolean isDestroyed;
 
     Projectile (PVector position, PVector velocity) 
     {
         this.position = position;
         this.velocity = velocity;
-        this.size = 5;        
+        this.size = 1; 
+        this.damage = 2;       
     }
-
-    Projectile (float damage, PVector velocity, PVector position) 
-    {
-        this.position = position;
-        this.velocity = velocity;
-        this.size = size;
-        this.damage = damage;
-    }
-
 }

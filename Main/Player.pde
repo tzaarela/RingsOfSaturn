@@ -1,5 +1,6 @@
 class Player extends Entity 
 {
+    float fireCooldown;
     float health;
     float maxSpeed;
     float ammoLimit;
@@ -15,6 +16,7 @@ class Player extends Entity
         this.currentRing = currentRing;
         this.size = 40;
         this.jumpCooldown = 250;
+        this.fireCooldown = 100;
         sprite = loadImage("PlayerOrange.png");
     }
 
