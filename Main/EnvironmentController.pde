@@ -1,19 +1,23 @@
 class EnvironmentController  
 {
-    float numberOfRings = 5;
+    int numberOfRings = 3;
     Ring[] rings;
     color[] colors;
 
     EnvironmentController () 
     {
-        rings = new Ring[5];
+        // #210535
+        // #430d4b
+        // #7b337d
+        // #c874b2
+
+        rings = new Ring[numberOfRings];
         colors = new color[]
         {
-            color(27, 29, 31),
-            color(38, 40, 43),
-            color(57, 59, 61),
-            color(47, 50, 52),
-            color(60, 64, 67),
+            color(#210535),
+            color(#430d4b),
+            color(#7b337d),
+            // color(#c874b2),
         };
         createRings();
     }
@@ -42,7 +46,9 @@ class EnvironmentController
         for (Ring ring : rings) 
         {
             push();
-            stroke(255, 125);
+            // strokeWeight(4);
+            stroke(255);
+            noStroke();
             noFill();
             ellipse(0, 0, ring.radius * 2, ring.radius * 2);
             pop();
@@ -51,14 +57,29 @@ class EnvironmentController
 
     void drawBackgroundCircles()
     {
-        for (int i = 4; i >= 0; i--) 
+        for (int i = 0; i < numberOfRings; i++) 
         {
-            fill(colors[i]);
-            noStroke();
-            ellipse(0, 0, (i+1) * 120 * resolutionScaling, (i+1) * 120 * resolutionScaling);
+            noFill();
+            // if(i == 0)
+            // {
+            //     PImage img = loadImage("saturn.png");
+            //     imageMode(CENTER);
+            //     image(img, 0, 0, (i+1) * 120, (i+1) * 120);
+            //     continue;
+            // }
+            stroke(colors[i % 3]);
+            strokeWeight(30);
+            ellipse(0, 0, (i+1) * 140 * 2 , (i+1) * 140 * 2);
+            stroke(colors[i % 3], 100);
+            strokeWeight(60);
+            ellipse(0, 0, (i+1) * 140 * 2 , (i+1) * 140 * 2);
+            stroke(colors[i % 3], 100);
+            strokeWeight(80);
+            ellipse(0, 0, (i+1) * 140 * 2 , (i+1) * 140 * 2);
+
+
         }
     }
-
     
     Ring[] getRings()
     {

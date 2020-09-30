@@ -6,19 +6,20 @@ public class GameController
     EnvironmentController environmentController;
     ScoreController scoreController;
     color[] colors;
+    PImage bg;
 
     public GameController () 
     {
         environmentController = new EnvironmentController();
         playerController = new PlayerController(environmentController.getRings());
         gameState = GameState.isRunning;
+        bg = loadImage("space.jpg");
     }
 
     public void update()
     {
         translate(resolutionX / 2, resolutionY / 2);
-        background(0);        
-        
+        background(bg);
 
         switch (gameState)
         {
