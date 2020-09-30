@@ -9,14 +9,17 @@ class CollisionController
 	{
 		for (Enemy enemy : enemies) 
 		{
-			for (Projectile projectile : projectiles) 
+			if(!enemy.isDead)
 			{
-				if(enemy.isColliding(projectile))
+				for (Projectile projectile : projectiles) 
 				{
-					enemy.takeDamage(projectile.damage);
-					projectile.isDestroyed = true;
-				}
-			}	
+					if(enemy.isColliding(projectile))
+					{
+						enemy.takeDamage(projectile.damage);
+						projectile.isDestroyed = true;
+					}
+				}	
+			}
 		}
 	}
 }

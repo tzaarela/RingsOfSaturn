@@ -11,23 +11,20 @@ class WaveController
 		totalWaves = 5;
 		waves = new ArrayList<Wave>();
 		currentWave = new Wave(1, player);
+		currentWave.spawnEnemy();
 		waves.add(currentWave);
 	}
 
 	void update()
 	{
-		runWave();
+
 		if(isWaveFinished(currentWave))
 		{
 			nextWave();
 		}
 
-		currentWave.update();
-	}
-
-	void runWave()
-	{
 		currentWave.spawnEnemy();
+		currentWave.update();
 	}
 
 	void nextWave()
@@ -38,6 +35,11 @@ class WaveController
 
 	boolean isWaveFinished(Wave wave)
 	{
-		return wave.enemies.size() == 0;
+		for (Enemy enemy : wave.enemies) 
+		{
+			if(!enemy.isDead)
+				return false;
+		}
+		return true;
 	}
 }

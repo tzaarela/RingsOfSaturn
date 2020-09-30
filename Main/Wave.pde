@@ -3,7 +3,6 @@ public class Wave
 	float totalEnemies;
 	float spawnCount;
 	float level;
-	float modeTime;
 	ArrayList<Enemy> enemies;
 	Player player;
 
@@ -22,7 +21,7 @@ public class Wave
 			Enemy enemy = enemies.get(i);
 			if(enemy.isDead)
 			{
-				destroyEnemy(enemy);
+				continue;
 			}
 
 			push();
@@ -32,11 +31,10 @@ public class Wave
 					player.position.y - enemy.position.y) * -1;	
 				rotate(playerRadians);
 
-				// println("angle: " + degrees(radians));
-				println("PlayerX: " + player.position.x);
-				println("PlayerY: " + player.position.y);
-				println("EnemyX: " + enemy.position.x);
-				println("EnemyY: " + enemy.position.y);
+				// println("PlayerX: " + player.position.x);
+				// println("PlayerY: " + player.position.y);
+				// println("EnemyX: " + enemy.position.x);
+				// println("EnemyY: " + enemy.position.y);
 
 				moveEnemy(enemy);
 				draw(enemy);
@@ -53,10 +51,9 @@ public class Wave
 	{
 		float currentTime = millis();
 
-		if (currentTime - modeTime > enemy.circleTime)
+		if (currentTime - enemy.spawnTime > enemy.circleTime)
 		{
 			enemy.mode = EnemyMode.isSuiciding;
-			modeTime = currentTime;
 		}
 
 		switch (enemy.mode) 
@@ -73,7 +70,6 @@ public class Wave
 
 	void destroyEnemy(Enemy target)
 	{
-		enemies.remove(target);
 		println("Enemy destroyed");
 	}
 	
