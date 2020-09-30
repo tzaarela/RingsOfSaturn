@@ -20,7 +20,7 @@ class ProjectileController
 		for (Projectile projectile : projectiles) 
 		{	
 			push();
-			fill(255);
+			fill(175);
 			ellipse(projectile.position.x, projectile.position.y, projectile.size, projectile.size);
 			pop();
 		}
@@ -31,12 +31,6 @@ class ProjectileController
 		for (Projectile projectile : projectiles) 
 		{
 			projectile.position.add(projectile.velocity);
-			// println("Projectile velocity X: " + projectile.velocity.x);
-			// println("Projectile velocity Y: " + projectile.velocity.y);
-
-
-			// println("Projectile Position X: " + projectile.position.x);
-			// println("Projectile Position Y: " + projectile.position.y);
 		}
     }
 

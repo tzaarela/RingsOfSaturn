@@ -1,5 +1,6 @@
-int resolutionX = 1920;
-int resolutionY = 1080;
+float resolutionScaling = 1.5;
+int resolutionX = int(1280 * resolutionScaling);
+int resolutionY = int(720 * resolutionScaling);
 
 float time;
 float oldTime;
@@ -11,8 +12,10 @@ void setup()
 {
   surface.setSize(resolutionX, resolutionY);
   surface.setLocation(0, 0);
+  imageMode(CENTER);
   gameController = new GameController();
-  frameRate(300);
+  
+  frameRate(120);
 }
 
 void draw() 

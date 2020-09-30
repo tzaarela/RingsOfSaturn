@@ -11,7 +11,7 @@ public class Ring
 
     void create(int level)
     {
-        radius = (level + 1) * 60;
+        radius = (level + 1) * 60 * resolutionScaling;
     }
 
 }

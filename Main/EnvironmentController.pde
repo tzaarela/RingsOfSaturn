@@ -9,11 +9,11 @@ class EnvironmentController
         rings = new Ring[5];
         colors = new color[]
         {
-            color(69, 76, 83, 50),
-            color(47, 50, 52, 50),
-            color(57, 59, 61, 50),
-            color(38, 40, 43, 50),
-            color(27, 29, 31, 50),
+            color(27, 29, 31),
+            color(38, 40, 43),
+            color(57, 59, 61),
+            color(47, 50, 52),
+            color(60, 64, 67),
         };
         createRings();
     }
@@ -25,7 +25,7 @@ class EnvironmentController
 
     void draw()
     {
-        drawBackgroundCircles();
+        //drawBackgroundCircles();
         drawRings();
     }
 
@@ -42,7 +42,7 @@ class EnvironmentController
         for (Ring ring : rings) 
         {
             push();
-            stroke(255);
+            stroke(255, 125);
             noFill();
             ellipse(0, 0, ring.radius * 2, ring.radius * 2);
             pop();
@@ -55,7 +55,7 @@ class EnvironmentController
         {
             fill(colors[i]);
             noStroke();
-            ellipse(0, 0, (i+1) * 120 , (i+1) * 120);
+            ellipse(0, 0, (i+1) * 120 * resolutionScaling, (i+1) * 120 * resolutionScaling);
         }
     }
 

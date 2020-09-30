@@ -6,6 +6,7 @@ class PlayerController
 	ProjectileController projectileController;
 
 
+
 	PlayerController(Ring[] rings)
 	{
 		player = new Player(rings[rings.length - 1]);
@@ -29,15 +30,15 @@ class PlayerController
 	void draw()
 	{
 		push();
-		fill(255);
-		ellipse(player.position.x, player.position.y, player.size, player.size);
-		pop();
+		translate(player.position.x, player.position.y);
+		rotate(radians(-moveController.angle));
+		image(player.sprite, 0, 0);	
+		pop();	
 	}
 
 	void shoot()
     {
 		projectileController.spawnBullet(player.position, 10);
-		//println("Shooting");
     }
 
     void die()
