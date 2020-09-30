@@ -1,6 +1,6 @@
-float resolutionScaling = 1.5;
-int resolutionX = int(1280 * resolutionScaling);
-int resolutionY = int(720 * resolutionScaling);
+float resolutionScaling = 1;
+int resolutionX = int(1920 * resolutionScaling);
+int resolutionY = int(1080 * resolutionScaling);
 
 float time;
 float oldTime;

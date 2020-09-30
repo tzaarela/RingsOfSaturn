@@ -29,7 +29,7 @@ class EnvironmentController
 
     void draw()
     {
-        //drawBackgroundCircles();
+        drawBackgroundCircles();
         drawRings();
     }
 
@@ -69,15 +69,13 @@ class EnvironmentController
             // }
             stroke(colors[i % 3]);
             strokeWeight(30);
-            ellipse(0, 0, (i+1) * 140 * 2 , (i+1) * 140 * 2);
+            ellipse(0, 0, (i+1) * 140 * 2 , (i+1) * 280 * resolutionScaling);
             stroke(colors[i % 3], 100);
             strokeWeight(60);
-            ellipse(0, 0, (i+1) * 140 * 2 , (i+1) * 140 * 2);
+            ellipse(0, 0, (i+1) * 140 * 2 , (i+1) * 280 * resolutionScaling);
             stroke(colors[i % 3], 100);
             strokeWeight(80);
-            ellipse(0, 0, (i+1) * 140 * 2 , (i+1) * 140 * 2);
-
-
+            ellipse(0, 0, (i+1) * 140 * 2 , (i+1) * 280 * resolutionScaling);
         }
     }
     
