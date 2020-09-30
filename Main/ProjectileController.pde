@@ -21,6 +21,8 @@ class ProjectileController
 		{	
 			push();
 			fill(255);
+			stroke(#89F3FF);
+			strokeWeight(100);
 			ellipse(projectile.position.x, projectile.position.y, projectile.size, projectile.size);
 			pop();
 		}
