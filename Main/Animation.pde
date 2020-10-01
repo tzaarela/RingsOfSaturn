@@ -7,6 +7,7 @@ class Animation
 	float frameEnd;
 	int frameIndex;
 	ArrayList<PImage> frames;
+	PImage frame;
 
 	Animation(float delay, PVector position, boolean isLooped) 
 	{
@@ -17,7 +18,6 @@ class Animation
 
 	PImage getNextFrame()
 	{
-		PImage frame;
 
 		if (frameIndex < frames.size())
 		{

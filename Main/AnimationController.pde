@@ -14,7 +14,7 @@ class AnimationController
 	void drawAnimations()
 	{
 		ArrayList<Animation> animations = Animator.animations;
-
+		println("animationCount: " + animations.size());
 		for (int i = 0; i < animations.size(); ++i) 
 		{	
 			Animation animation = animations.get(i);
