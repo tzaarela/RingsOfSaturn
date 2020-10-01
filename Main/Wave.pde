@@ -3,6 +3,7 @@ public class Wave
 	float totalEnemies;
 	float spawnCount;
 	float level;
+	float velocityMultiplier = 150f;;
 	ArrayList<Enemy> enemies;
 	Player player;
 
@@ -10,7 +11,7 @@ public class Wave
 	{
 		this.level = level;
 		this.player = player;
-		this.totalEnemies = level * 1;
+		this.totalEnemies = level * 2;
 		enemies = new ArrayList<Enemy>();
 	}
 
@@ -21,21 +22,12 @@ public class Wave
 			Enemy enemy = enemies.get(i);
 			if(enemy.isDead)
 			{
+				destroyEnemy(enemy);
 				continue;
 			}
 
 			push();
 				translate(enemy.position.x, enemy.position.y);
-				float playerRadians = (float)Math.atan2(
-					player.position.x - enemy.position.x,
-					player.position.y - enemy.position.y) * -1;	
-				rotate(playerRadians);
-
-				// println("PlayerX: " + player.position.x);
-				// println("PlayerY: " + player.position.y);
-				// println("EnemyX: " + enemy.position.x);
-				// println("EnemyY: " + enemy.position.y);
-
 				moveEnemy(enemy);
 				draw(enemy);
 			pop();	
@@ -59,18 +51,31 @@ public class Wave
 		switch (enemy.mode) 
 		{
 			case isCircling :
-				// enemy.position.add()
+				//enemy.position.add(random(-5, 5), random(-5, 5));
+				float playerRadians = (float)Math.atan2
+				(player.position.x - enemy.position.x, player.position.y - enemy.position.y) * -1;	
+				rotate(playerRadians);
 			break;
 
 			case isSuiciding :
-				enemy.position.add(enemy.velocity);
+				enemy.position.add(PVector.mult(enemy.velocity, deltaTime * velocityMultiplier));
+				rotate(enemy.position.heading() - radians(90));
 			break;
 		}
 	}
 
 	void destroyEnemy(Enemy target)
 	{
-		println("Enemy destroyed");
+
+		for (PImage sprite : target.deathAnimation) 
+		{
+			for (int i = 0; i < 50; ++i) 
+			{
+				image(sprite, target.position.x, target.position.y, target.size, target.size);	
+			}
+		}
+
+		enemies.remove(target);
 	}
 	
 	void spawnEnemy()

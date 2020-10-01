@@ -7,7 +7,7 @@ public class GameController
     CollisionController collisionController;
     ScoreController scoreController;
     color[] colors;
-    PImage bg;
+    PImage background;
 
     public GameController () 
     {
@@ -17,13 +17,13 @@ public class GameController
         collisionController = new CollisionController();
 
         gameState = GameState.isRunning;
-        bg = loadImage("space.jpg");
+        background = loadImage("Space.jpg");
     }
 
     public void update()
     {
         translate(resolutionX / 2, resolutionY / 2);
-        background(bg);
+        background(background);
 
         switch (gameState)
         {

@@ -1,11 +1,13 @@
 class ProjectileController
 {
 	ArrayList<Projectile> projectiles;
+	float velocityMultiplier;
 
 
 	ProjectileController(Entity entity)
 	{
 		projectiles = new ArrayList<Projectile>();
+		velocityMultiplier = 100f;
 	}
 
 
@@ -14,6 +16,8 @@ class ProjectileController
 		for (int i = 0; i < projectiles.size(); ++i) 
 		{
 			Projectile projectile = projectiles.get(i);
+
+			destoyIfOutsideBoundary(projectile);
 				
 			if (projectile.isDestroyed)
 			{
@@ -39,17 +43,14 @@ class ProjectileController
 
     void move(Projectile projectile)
     {
-		projectile.position.add(projectile.velocity);
+		projectile.position.add(PVector.mult(projectile.velocity, deltaTime * velocityMultiplier));
     }
 
 	void spawnBullet(PVector startPosition, float speed)
 	{
 		PVector direction =  startPosition.copy().mult(-1).normalize();
-		// println(direction.x);
-		// println(direction.y);
-
 		PVector velocity = direction.mult(speed);
-		// println("velocity X: " + velocity.x);
+
         Projectile projectile = new Projectile(startPosition.copy(), velocity);
 		projectiles.add(projectile);
 	}
@@ -59,5 +60,12 @@ class ProjectileController
 		projectiles.remove(projectile);
 	}
 
+	void destoyIfOutsideBoundary(Projectile projectile)
+	{
+		if (projectile.position.x < -resolutionX/2 || projectile.position.x > resolutionX/2)
+			projectile.isDestroyed = true;
 
+		if (projectile.position.y < -resolutionY/2 || projectile.position.y > resolutionY/2)
+			projectile.isDestroyed = true;
+	}
 }

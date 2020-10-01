@@ -23,18 +23,22 @@ void setInputs(int keyCode, boolean isPressed)
     switch (keyCode) {
 
         case 'A' :
+        case 37 :
         isLeft = isPressed;
         break;	
 
-        case 'D' :
-        isRight = isPressed;
-        break;	
-
         case 'W' :
+        case 38 :
         isUp = isPressed;
-        break;	
+        break;
+
+        case 'D' :
+        case 39 :
+        isRight = isPressed;
+        break;		
 
         case 'S' :
+        case 40 :
         isDown = isPressed;
         break;	
 

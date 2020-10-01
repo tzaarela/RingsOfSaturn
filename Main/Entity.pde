@@ -6,6 +6,7 @@ abstract class Entity
     float radius;
     Ring currentRing;
     PImage sprite;
+    PImage[] deathAnimation;
 
     Entity()
     {
