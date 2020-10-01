@@ -18,6 +18,7 @@ void setup()
 {
   surface.setSize(resolutionX, resolutionY);
   surface.setLocation(0, 0);
+  fullScreen();
   mainInstance = this;
   assetLoader = new AssetLoader();
   screenController = new ScreenController();
