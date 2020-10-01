@@ -26,5 +26,4 @@ class AudioController
 	{
 		sounds.get(soundFile).sound.loop();
 	}
-
 }

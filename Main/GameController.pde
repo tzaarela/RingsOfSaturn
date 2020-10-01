@@ -7,6 +7,7 @@ public class GameController
     CollisionController collisionController;
     ScoreController scoreController;
     ScreenController screenController;
+    AnimationController animationController;
     color[] colors;
     PImage background;
 
@@ -17,6 +18,7 @@ public class GameController
         waveController = new WaveController(playerController.player);
         collisionController = new CollisionController();
         screenController = new ScreenController();
+        animationController = new AnimationController();
 
         background = loadImage("Space.jpg");
     }
@@ -27,9 +29,10 @@ public class GameController
         background(background);
 
         environmentController.update();
-            playerController.update();
-            waveController.update();
-            collisionController.update(playerController.player,
+        playerController.update();
+        waveController.update();
+        animationController.update();
+        collisionController.update(playerController.player,
                 waveController.currentWave.enemies,
                 playerController.projectileController.projectiles);
     }

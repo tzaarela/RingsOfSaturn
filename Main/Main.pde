@@ -12,29 +12,30 @@ float deltaTime;
 GameState gameState;
 
 ScreenController screenController;
+AssetLoader assetLoader;
 
 void setup() 
 {
   surface.setSize(resolutionX, resolutionY);
   surface.setLocation(0, 0);
-  this.mainInstance = this;
-  imageMode(CENTER);
+  mainInstance = this;
+  assetLoader = new AssetLoader();
   screenController = new ScreenController();
   gameState = GameState.inMainMenu;
   
+  imageMode(CENTER);
   frameRate(120);
+  assetLoader.loadAnimations();
 }
 
 void draw() 
 {
   
   calculateDeltaTime("START");
-
   screenController.update();
 
 	calculateDeltaTime("END");
 }
-
 
 void calculateDeltaTime(String interval)
 {
@@ -47,4 +48,9 @@ void calculateDeltaTime(String interval)
     case "END":
     oldTime = time;
   }
+}
+
+void loadAssets()
+{
+
 }

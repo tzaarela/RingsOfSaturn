@@ -1,18 +1,23 @@
 class ScreenController 
 {
+	AudioController audioController;
 	Screen currentScreen;
 	MainMenu mainMenu;
 	PauseMenu pauseMenu;
 	Highscore highscore;
 	Game game;
 
-	ScreenController () 
+	ScreenController() 
 	{
 		mainMenu = new MainMenu();
 		pauseMenu = new PauseMenu();
 		highscore = new Highscore();
 		game = new Game();
 
+		audioController = new AudioController();
+		audioController.loadSound("scott-buckley-signal-to-noise.wav");
+		audioController.loopSound("scott-buckley-signal-to-noise.wav");
+		
 		currentScreen = mainMenu;
 	}
 

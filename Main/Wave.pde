@@ -66,15 +66,7 @@ public class Wave
 
 	void destroyEnemy(Enemy target)
 	{
-
-		for (PImage sprite : target.deathAnimation) 
-		{
-			for (int i = 0; i < 50; ++i) 
-			{
-				image(sprite, target.position.x, target.position.y, target.size, target.size);	
-			}
-		}
-
+		Animator.animate(new Animation(500f, target.position), "Explosion");
 		enemies.remove(target);
 	}
 	

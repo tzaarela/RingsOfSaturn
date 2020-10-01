@@ -22,15 +22,6 @@ public class Enemy extends Entity
         this.circleTime = 5000;
         this.size = 40;
         this.sprite = loadImage("Enemy00.png");
-
-        this.deathAnimation = new PImage[]
-        {
-            loadImage("Explosion00.png"),
-            loadImage("Explosion01.png"),
-            loadImage("Explosion02.png"),
-            loadImage("Explosion03.png"),
-            loadImage("Explosion04.png"),
-        };
     }
 
     void takeDamage(float damage)
