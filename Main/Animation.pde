@@ -1,15 +1,16 @@
 class Animation  
 {
 	PVector position;
+	boolean isLooped;
 	float delay;
 	float frameStart;
 	float frameEnd;
 	int frameIndex;
 	ArrayList<PImage> frames;
 
-	Animation(float delay, PVector position) 
+	Animation(float delay, PVector position, boolean isLooped) 
 	{
-		this.frames = frames;
+		this.isLooped = isLooped;
 		this.delay = delay;
 		this.position = position;
 	}
@@ -24,6 +25,10 @@ class Animation
 		}
 		else 
 		{
+			if(!isLooped)
+			{
+				return null;
+			}
 			frameIndex = 0;
 			frame = frames.get(frameIndex++);
 		}

@@ -66,7 +66,7 @@ public class Wave
 
 	void destroyEnemy(Enemy target)
 	{
-		Animator.animate(new Animation(500f, target.position), "Explosion");
+		Animator.animate(new Animation(200f, target.position, false), "Explosion");
 		enemies.remove(target);
 	}
 	

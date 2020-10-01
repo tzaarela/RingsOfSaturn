@@ -13,4 +13,9 @@ static class Animator
 		animation.frames = frames.get(groupName);
 		animations.add(animation);
 	}
+
+	static void stop(Animation animation)
+	{
+		animations.remove(animation);
+	}
 }
