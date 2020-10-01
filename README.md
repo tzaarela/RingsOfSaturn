@@ -1,9 +1,9 @@
 ## [Rings of Saturn]
 
-[Miro Board](blob:https://imgur.com/f1a1d2e1-3b94-419f-b685-52094d4eda78)
+[Miro Board](https://miro.com/app/board/o9J_klxyRd0=/)
 
 ## [Day 4 - Screenshot]
-<img src="https://i.imgur.com/gec73K2.jpg">
+<img src="https://imgur.com/5Ap6EcV">
 
 ## [Day 3 - Screenshot]
 <img src="https://imgur.com/WL1mrm1.png">
