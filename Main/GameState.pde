@@ -1,4 +1,4 @@
 enum GameState
 {
-    isRunning, isPaused, isVictory, isDefeat
+   inGame, inMainMenu, inPauseMenu, inHighscore
 }

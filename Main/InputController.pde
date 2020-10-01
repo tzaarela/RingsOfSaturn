@@ -1,4 +1,4 @@
-boolean isLeft, isRight, isUp, isDown, isFiring;
+boolean isLeftPressed, isRightPressed, isUpPressed, isDownPressed, isSpacePressed;
 
 void keyPressed()
 {
@@ -13,8 +13,8 @@ void keyReleased()
 PVector getInputVector()
 {
     PVector input = new PVector();
-    input.x = int(isRight) - int(isLeft);
-    input.y = int(isDown) - int(isUp);
+    input.x = int(isRightPressed) - int(isLeftPressed);
+    input.y = int(isDownPressed) - int(isUpPressed);
     return input;
 }
 
@@ -24,26 +24,26 @@ void setInputs(int keyCode, boolean isPressed)
 
         case 'A' :
         case 37 :
-        isLeft = isPressed;
+        isLeftPressed = isPressed;
         break;	
 
         case 'W' :
         case 38 :
-        isUp = isPressed;
+        isUpPressed = isPressed;
         break;
 
         case 'D' :
         case 39 :
-        isRight = isPressed;
+        isRightPressed = isPressed;
         break;		
 
         case 'S' :
         case 40 :
-        isDown = isPressed;
+        isDownPressed = isPressed;
         break;	
 
         case ' ' :
-        isFiring = isPressed;
+        isSpacePressed = isPressed;
         break;	
     }
 }

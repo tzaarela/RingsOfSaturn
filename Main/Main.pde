@@ -6,14 +6,17 @@ float time;
 float oldTime;
 float deltaTime;
 
-GameController gameController;
+GameState gameState;
+
+ScreenController screenController;
 
 void setup() 
 {
   surface.setSize(resolutionX, resolutionY);
   surface.setLocation(0, 0);
   imageMode(CENTER);
-  gameController = new GameController();
+  screenController = new ScreenController();
+  gameState = GameState.inMainMenu;
   
   frameRate(120);
 }
@@ -23,7 +26,7 @@ void draw()
   
   calculateDeltaTime("START");
 
-  gameController.update();
+  screenController.update();
 
 	calculateDeltaTime("END");
 }

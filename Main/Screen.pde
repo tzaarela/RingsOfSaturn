@@ -1,0 +1,4 @@
+interface Screen
+{
+	void update();
+}

@@ -22,7 +22,7 @@ class PlayerController
 		moveController.lineStep(getInputVector(), rings);
 		projectileController.update();
 
-        if (isFiring)
+        if (isSpacePressed)
 			shoot();
 
 		draw();
