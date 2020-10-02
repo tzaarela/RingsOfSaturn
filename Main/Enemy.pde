@@ -20,7 +20,7 @@ public class Enemy extends Entity
         this.damage = damage;
         this.position = position;
         this.velocity = velocity;
-        this.maxSpeed = 50f;
+        this.maxSpeed = 60f;
         this.mode = mode;
         this.spawnTime = millis();
         this.circleTime = 5000;

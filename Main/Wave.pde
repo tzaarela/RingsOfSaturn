@@ -25,7 +25,7 @@ public class Wave
 
 		audioController = new AudioController();
 		audioController.loadSound("zapsplat_explosion_big_powerful_internal_002_48731.wav");
-		audioController.volumeSound("zapsplat_explosion_big_powerful_internal_002_48731.wav", 0.75);
+		audioController.volumeSound("zapsplat_explosion_big_powerful_internal_002_48731.wav", 0.075);
 	}
 
 	void update()
@@ -71,7 +71,7 @@ public class Wave
 
 				if(currentTime - enemy.startPatrolTime > enemy.patrolTime)
 				{
-					enemy.velocity.add(random(-1, 1), random(-1, 1));
+					enemy.velocity.add(random(-1.0, 1.0), random(-1.0, 1.0));
 					enemy.startPatrolTime = currentTime;
 				}
 
@@ -80,6 +80,7 @@ public class Wave
 				float playerRadians = (float)Math.atan2(
 					player.position.x - enemy.position.x,
 					player.position.y - enemy.position.y) * -1;	
+				enemy.rotation = degrees(playerRadians);
 				rotate(playerRadians);
 
 			break;
@@ -91,33 +92,36 @@ public class Wave
 				enemy.velocity = new PVector(attackDirection.x, attackDirection.y);
 				enemy.position.add(PVector.mult(enemy.velocity, deltaTime * enemy.maxSpeed));
 
+				attackDirection.setMag(enemyAttackLimit);
+				float attackRadians = degrees((float)Math.atan2(
+					attackDirection.x,
+					attackDirection.y) * -1);
 
-				//TODO - Better rotation
-				float rotationGoal = degrees((float)Math.atan2(enemy.velocity.y, enemy.velocity.x) + radians(-90));
-				float rotationSpeed = rotationGoal / 100;
 
-				println("rotationGoal: " + rotationGoal);
-				println("rotationSpeed: " + rotationSpeed);
-
-				if(rotationGoal > 0)
+				if(enemy.rotation > 0 && enemy.rotation < 180)
 				{
-					if(enemy.rotation < rotationGoal)
+					if(enemy.rotation > attackRadians)
 					{
-						enemy.rotation += rotationSpeed;
+						enemy.rotation += 0.01;
 					}
 				}
-
-				if(rotationGoal < 0)
+				if(enemy.rotation < 90 && enemy.rotation > -90)
 				{
-					if(enemy.rotation > rotationGoal)
+					if(enemy.rotation > attackRadians)
 					{
-						enemy.rotation -= rotationSpeed;
+						enemy.rotation -= 0.01;
 					}
 				}
-				
+			
+				println(enemy.rotation);
+				println(attackRadians);
 				rotate(radians(enemy.rotation));
-				
-				// rotate(enemy.position.heading());
+ 				
+
+			
+				//float rotationGoal = degrees((float)Math.atan2(enemy.velocity.y, enemy.velocity.x));
+
+		
 
 				if(enemy.position.mag() > enemyAttackLimit)
 				{
