@@ -13,6 +13,10 @@ class PlayerController
 		player = new Player(rings[rings.length - 1]);
 		moveController = new MoveController(player);
 		projectileController = new ProjectileController(player);
+		audioController = new AudioController();
+		audioController.loadSound("zapsplat_science_fiction_weapon_gun_shoot_003_32196.wav");
+		audioController.volumeSound("zapsplat_science_fiction_weapon_gun_shoot_003_32196.wav", 0.025);
+
 		this.rings = rings;
 	}
 
@@ -22,7 +26,6 @@ class PlayerController
 		moveController.lineStep(getInputVector(), rings);
 		projectileController.update();
 
-		audioController = new AudioController();
 
         if (isSpacePressed)
 			shoot();
@@ -46,9 +49,9 @@ class PlayerController
 
 		if (currentTime - lastShotTime > player.fireCooldown)
 		{
-			audioController.loadSound("zapsplat_science_fiction_weapon_gun_shoot_003_32196.wav");
+			audioController.stopSound("zapsplat_science_fiction_weapon_gun_shoot_003_32196.wav");
 			audioController.playSound("zapsplat_science_fiction_weapon_gun_shoot_003_32196.wav");
-			audioController.volumeSound("zapsplat_science_fiction_weapon_gun_shoot_003_32196.wav", 0.025);
+			
 			projectileController.spawnBullet(player.position, 8);
 			lastShotTime = currentTime;
 		}
