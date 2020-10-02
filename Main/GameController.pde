@@ -19,8 +19,7 @@ public class GameController
         waveController = new WaveController(playerController.player);
         collisionController = new CollisionController();
         animationController = new AnimationController();
-
-        //background = loadImage("animatedBackground.0001.jpg");
+        
         animatedBackground = new PImage[]
         {
             loadImage("animatedBackground.0001.jpg"),

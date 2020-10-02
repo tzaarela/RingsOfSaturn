@@ -26,4 +26,9 @@ class AudioController
 	{
 		sounds.get(soundFile).sound.loop();
 	}
+
+	void volumeSound(String soundFile, float volume)
+	{
+		sounds.get(soundFile).sound.amp(volume);
+	}
 }

@@ -16,7 +16,7 @@ class Player extends Entity
         this.currentRing = currentRing;
         this.size = 40;
         this.jumpCooldown = 250;
-        this.fireCooldown = 100;
+        this.fireCooldown = 125;
         sprite = loadImage("PlayerBlue.png");
     }
 
