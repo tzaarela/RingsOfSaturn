@@ -6,6 +6,8 @@ public class Enemy extends Entity
     float damage;
     float spawnTime;
     float circleTime;
+    float patrolTime;
+    float startPatrolTime;
     boolean isDead;
     EnemyMode mode;
     
@@ -17,9 +19,11 @@ public class Enemy extends Entity
         this.damage = damage;
         this.position = position;
         this.velocity = velocity;
+        this.maxSpeed = 50f;
         this.mode = mode;
         this.spawnTime = millis();
         this.circleTime = 5000;
+        this.patrolTime = 1500;
         this.size = 40;
         this.sprite = loadImage("Enemy00.png");
     }

@@ -3,9 +3,10 @@ public class Wave
 	float totalEnemies;
 	float spawnCount;
 	float level;
-	float velocityMultiplier = 150f;;
 	ArrayList<Enemy> enemies;
 	Player player;
+		float x = 1;
+				float y = 1;
 
 	public Wave(float level, Player player) 
 	{
@@ -48,20 +49,40 @@ public class Wave
 			enemy.mode = EnemyMode.isSuiciding;
 		}
 
+		enemy.velocity.limit(enemy.maxSpeed);
+
 		switch (enemy.mode) 
 		{
 			case isCircling :
-				//enemy.position.add(random(-5, 5), random(-5, 5));
-				float playerRadians = (float)Math.atan2
-				(player.position.x - enemy.position.x, player.position.y - enemy.position.y) * -1;	
+
+				enemy.position.limit(140);
+
+				if(currentTime - enemy.startPatrolTime > enemy.patrolTime)
+				{
+					enemy.velocity.add(random(-1, 1), random(-1, 1));
+					enemy.startPatrolTime = currentTime;
+				}
+
+				enemy.position.add(PVector.mult(enemy.velocity, deltaTime * enemy.maxSpeed));
+
+				float playerRadians = (float)Math.atan2(
+					player.position.x - enemy.position.x,
+					player.position.y - enemy.position.y) * -1;	
 				rotate(playerRadians);
+
 			break;
 
 			case isSuiciding :
-				enemy.position.add(PVector.mult(enemy.velocity, deltaTime * velocityMultiplier));
+				
+			
+				enemy.position.limit(resolutionX);
+				enemy.velocity = new PVector(x, y);
+				enemy.position.add(PVector.mult(enemy.velocity, deltaTime * enemy.maxSpeed));
+
+				// rotate((float)Math.atan2(-enemy.velocity.y, enemy.velocity.x));
 				rotate(enemy.position.heading() - radians(90));
 			break;
-		}
+		} 
 	}
 
 	void destroyEnemy(Enemy target)
@@ -75,13 +96,13 @@ public class Wave
 	{
 		if (spawnCount < totalEnemies)
 		{
-			float health = 10;
+			float health = 6;
 			float damage = 2;
 			
 			enemies.add
 			(
 				new Enemy(health, damage, new PVector(random(-75, 75), random(-75, 75)),
-				new PVector(random(-1, 1), random(-1, 1)),
+				new PVector(0,0),
 				EnemyMode.isCircling)
 			);
 

@@ -7,7 +7,7 @@ public class MoveController
 
 	float velocityLimit = 20f;
 	float rotateSpeed = 20f;
-	float accelerationMultiplier = 1.4f;
+	float accelerationMultiplier = 1.1f;
 	float dragMultiplier = 0.15f;
 
 	PVector acceleration;
