@@ -25,7 +25,7 @@ public class Wave
 
 		audioController = new AudioController();
 		audioController.loadSound("zapsplat_explosion_big_powerful_internal_002_48731.wav");
-		audioController.volumeSound("zapsplat_explosion_big_powerful_internal_002_48731.wav", 0.75);
+		audioController.volumeSound("zapsplat_explosion_big_powerful_internal_002_48731.wav", 0.075);
 	}
 
 	void update()
@@ -130,10 +130,14 @@ public class Wave
 		{
 			float health = 6;
 			float damage = 2;
+
+			PVector spawnLocation = new PVector(random(-75, 75), random(-75, 75));
+			Animation animation =  new Animation(250f, spawnLocation, false);
+			Animator.animate(animation, "EnemySpawn");
 			
 			enemies.add
 			(
-				new Enemy(health, damage, new PVector(random(-75, 75), random(-75, 75)),
+				new Enemy(health, damage, spawnLocation,
 				new PVector(0,0),
 				EnemyMode.isCircling)
 			);
