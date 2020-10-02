@@ -7,7 +7,7 @@ public class MoveController
 
 	float velocityLimit = 20f;
 	float rotateSpeed = 20f;
-	float accelerationMultiplier = 3.5f;
+	float accelerationMultiplier = 1.4f;
 	float dragMultiplier = 0.15f;
 
 	PVector acceleration;
@@ -24,13 +24,7 @@ public class MoveController
 
 	void createAcceleration(PVector input)
 	{
-		if (input.x > 0)
-			acceleration.x -= -input.x;
-
-		if (input.x < 0)
-			acceleration.x += input.x;
-
-		acceleration.normalize();
+		acceleration.x = input.normalize().x;
 		acceleration.mult(accelerationMultiplier);
 	}
 
