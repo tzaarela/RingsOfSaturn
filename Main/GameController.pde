@@ -85,8 +85,8 @@ public class GameController
 
         environmentController.update();
         playerController.update();
-        waveController.update();
         animationController.update();
+        waveController.update();
         collisionController.update
         (
             playerController.player,

@@ -28,6 +28,7 @@ void setup()
   imageMode(CENTER);
   frameRate(120);
   assetLoader.loadAnimations();
+  assetLoader.loadSprites();
 }
 
 void draw() 

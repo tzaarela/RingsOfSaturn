@@ -52,7 +52,7 @@ class MainMenu implements Screen
 			{
 				for (int i = 0; i < menuItems.size(); ++i) 
 				{
-					println("selected " + i + menuItems.get(i).isSelected );
+					// println("selected " + i + menuItems.get(i).isSelected );
 					if(menuItems.get(i).isSelected)
 					{
 						menuItems.get(i).isSelected = false;

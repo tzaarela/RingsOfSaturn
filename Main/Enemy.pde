@@ -1,5 +1,6 @@
 public class Enemy extends Entity 
 {
+    int  id;
     float health;
     float maxSpeed;
     float bulletSpeed;
@@ -11,6 +12,7 @@ public class Enemy extends Entity
     float rotation;
     boolean isDead;
     EnemyMode mode;
+    Animation spawnAnimation;
     
     MoveController moveController;
 
@@ -23,10 +25,10 @@ public class Enemy extends Entity
         this.maxSpeed = 60f;
         this.mode = mode;
         this.spawnTime = millis();
-        this.circleTime = 5000;
+        this.circleTime = 10000;
         this.patrolTime = 1500;
         this.size = 40;
-        this.sprite = loadImage("Enemy00.png");
+        this.sprite = Assets.sprites.get("Enemy");
     }
 
     void takeDamage(float damage)

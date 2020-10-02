@@ -1,9 +1,12 @@
 public class Wave  
 {
+	int enemyCount;
 	float totalEnemies;
 	float spawnCount;
 	float level;
 	ArrayList<Enemy> enemies;
+	ArrayList<Enemy> spawningEnemies;
+	ArrayList<Enemy> animatedEnemies;
 	Player player;
 	float enemyAttackLimit = 440;
 	float newWaveTimer = 2000;
@@ -11,6 +14,8 @@ public class Wave
 	float attackDirectionX;
 	float attackDirectionY;
 	AudioController audioController;
+	boolean hasEnemiesSpawned;
+	boolean hasCreatedEnemies;
 	PVector attackDirection;
 
 	
@@ -19,10 +24,11 @@ public class Wave
 	{
 		this.level = level;
 		this.player = player;
-		this.totalEnemies = level * 2;
+		this.totalEnemies = level;
 		attackDirection = new PVector(random(-1,1), random(-1,1));
 		enemies = new ArrayList<Enemy>();
-
+		spawningEnemies = new ArrayList<Enemy>();
+		animatedEnemies = new ArrayList<Enemy>();
 		audioController = new AudioController();
 		audioController.loadSound("zapsplat_explosion_big_powerful_internal_002_48731.wav");
 		audioController.volumeSound("zapsplat_explosion_big_powerful_internal_002_48731.wav", 0.075);
@@ -49,7 +55,7 @@ public class Wave
 
 	void draw(Enemy enemy)
 	{
-		image(enemy.sprite, 0, 0, enemy.size, enemy.size);
+		image(enemy.sprite, 0, 0);
 	}
 
 	void moveEnemy(Enemy enemy)
@@ -88,40 +94,10 @@ public class Wave
 			case isSuiciding :
 				
 				enemy.position.limit(resolutionX);
-				attackDirection.normalize();
-				enemy.velocity = new PVector(attackDirection.x, attackDirection.y);
+				enemy.velocity.normalize();
 				enemy.position.add(PVector.mult(enemy.velocity, deltaTime * enemy.maxSpeed));
-
-				attackDirection.setMag(enemyAttackLimit);
-				float attackRadians = degrees((float)Math.atan2(
-					attackDirection.x,
-					attackDirection.y) * -1);
-
-
-				if(enemy.rotation > 0 && enemy.rotation < 180)
-				{
-					if(enemy.rotation > attackRadians)
-					{
-						enemy.rotation += 0.01;
-					}
-				}
-				if(enemy.rotation < 90 && enemy.rotation > -90)
-				{
-					if(enemy.rotation > attackRadians)
-					{
-						enemy.rotation -= 0.01;
-					}
-				}
-			
-				println(enemy.rotation);
-				println(attackRadians);
-				rotate(radians(enemy.rotation));
- 				
-
-			
-				//float rotationGoal = degrees((float)Math.atan2(enemy.velocity.y, enemy.velocity.x));
-
-		
+				
+				rotate(enemy.position.heading() + radians(-90));
 
 				if(enemy.position.mag() > enemyAttackLimit)
 				{
@@ -147,27 +123,54 @@ public class Wave
 		enemies.remove(target);
 	}
 	
-	void spawnEnemy()
+	void spawnEnemies()
 	{
-		if (spawnCount < totalEnemies)
+		if(!hasCreatedEnemies)
 		{
-			float health = 6;
-			float damage = 2;
+			for (int i = 0; i < totalEnemies; ++i) 
+			{
+				PVector spawnLocation = new PVector(random(-75, 75), random(-75, 75));
 
-			PVector spawnLocation = new PVector(random(-75, 75), random(-75, 75));
-			Animation animation =  new Animation(250f, spawnLocation, false);
-			Animator.animate(animation, "EnemySpawn");
-			
-			enemies.add
-			(
-				new Enemy(health, damage, spawnLocation,
-				new PVector(0,0),
-				EnemyMode.isCircling)
-			);
+				Enemy enemy = new Enemy(
+					6, 2, spawnLocation,
+					new PVector(0,0),	
+					EnemyMode.isCircling);
+				enemy.id = ++enemyCount;
 
-			spawnCount++;
-			println("Spawn Enemy");
+				Animation animation =  new Animation(500f, spawnLocation, false);
+				animation.id = enemy.id;
+				Animator.animate(animation, "EnemySpawn");
+				enemy.spawnAnimation = animation;
+				spawningEnemies.add(enemy);
+				hasCreatedEnemies = true;
+			}
+
+			hasEnemiesSpawned = false;
+		}
+		else 
+		{
+			for (int i = 0; i < spawningEnemies.size(); ++i) 
+			{
+				Enemy enemy = spawningEnemies.get(i);
+				if(enemy.spawnAnimation.isDone)
+				{
+					animatedEnemies.add(enemy);
+					spawningEnemies.remove(enemy);
+				}
+			}
+
+			// println(totalEnemies);
+			// println(enemies.size());
+
+			if(totalEnemies == animatedEnemies.size() && !hasEnemiesSpawned)
+			{
+				for (Enemy enemy : animatedEnemies) 
+				{
+					enemies.add(enemy);
+				}
+				hasEnemiesSpawned = true;
+				return;
+			}
 		}
 	}
-
 }

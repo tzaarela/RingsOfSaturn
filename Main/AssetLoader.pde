@@ -12,7 +12,7 @@ class AssetLoader
 		explosions.add(loadImage("Explosion05.png"));
 		explosions.add(loadImage("Explosion06.png"));
 		Animator.loadFrames("Explosion", explosions);
-
+ 
 		//Enemy Spawns
 		ArrayList<PImage> enemySpawn = new ArrayList<PImage>();
 		enemySpawn.add(loadImage("EnemySpawn00.png"));
@@ -22,7 +22,13 @@ class AssetLoader
 		enemySpawn.add(loadImage("EnemySpawn04.png"));
 		enemySpawn.add(loadImage("EnemySpawn05.png"));
 		enemySpawn.add(loadImage("EnemySpawn06.png"));
-		enemySpawn.add(loadImage("EnemySpawn07.png"));
 		Animator.loadFrames("EnemySpawn", enemySpawn);
 	}
+
+	void loadSprites()
+	{
+		Assets.loadSprites("Enemy", loadImage("Enemy00.png"));
+	}
+
+
 }

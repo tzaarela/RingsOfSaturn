@@ -11,32 +11,33 @@ class WaveController
 		totalWaves = 5;
 		waves = new ArrayList<Wave>();
 		currentWave = new Wave(1, player);
-		currentWave.spawnEnemy();
 		waves.add(currentWave);
 	}
 
 	void update()
 	{
-		if(isWaveFinished(currentWave))
+		currentWave.spawnEnemies();
+
+		if(currentWave.hasEnemiesSpawned)
 		{
-			float currentTime = millis();
-			if(currentTime == currentWave.waveEndTimer + currentTime)
-				currentWave.waveEndTimer = currentTime;
-
-			if(currentWave.newWaveTimer + currentWave.waveEndTimer < millis())
+			if(isWaveFinished(currentWave))
 			{
-				nextWave();
-			}
-		}
+				float currentTime = millis();
+				if(currentTime == currentWave.waveEndTimer + currentTime)
+					currentWave.waveEndTimer = currentTime;
 
-		currentWave.spawnEnemy();
-		currentWave.update();
+				if(currentWave.newWaveTimer + currentWave.waveEndTimer < millis())
+				{
+					nextWave();
+				}
+			}
+			currentWave.update();
+		}
 	}
 
 	void nextWave()
 	{
 		currentWave = new Wave(currentWave.level + 1, player);
-		println("Next wave: " + currentWave.level);
 	}
 
 	boolean isWaveFinished(Wave wave)
