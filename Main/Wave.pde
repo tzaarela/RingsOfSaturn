@@ -10,6 +10,7 @@ public class Wave
 	float waveEndTimer;
 	float attackDirectionX;
 	float attackDirectionY;
+	AudioController audioController;
 	PVector attackDirection;
 
 	
@@ -21,6 +22,10 @@ public class Wave
 		this.totalEnemies = level * 2;
 		attackDirection = new PVector(random(-1,1), random(-1,1));
 		enemies = new ArrayList<Enemy>();
+
+		audioController = new AudioController();
+		audioController.loadSound("zapsplat_explosion_big_powerful_internal_002_48731.wav");
+		audioController.volumeSound("zapsplat_explosion_big_powerful_internal_002_48731.wav", 0.75);
 	}
 
 	void update()
@@ -86,7 +91,7 @@ public class Wave
 				enemy.velocity = new PVector(attackDirection.x, attackDirection.y);
 				enemy.position.add(PVector.mult(enemy.velocity, deltaTime * enemy.maxSpeed));
 
-				float rotationSpeed = 3;
+				//float rotationSpeed = 3;
 
 				//TODO - Better rotation
 				float rotationSpeed = radians(10);
@@ -111,6 +116,9 @@ public class Wave
 
 	void destroyEnemy(Enemy target)
 	{	
+		audioController.stopSound("zapsplat_explosion_big_powerful_internal_002_48731.wav");
+		audioController.playSound("zapsplat_explosion_big_powerful_internal_002_48731.wav");
+		
 		Animation animation =  new Animation(25f, target.position, false);
 		Animator.animate(animation, "Explosion");
 		enemies.remove(target);
