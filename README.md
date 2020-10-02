@@ -3,7 +3,7 @@
 [Miro Board](https://miro.com/app/board/o9J_klxyRd0=/)
 
 ## [Day 5 - Screenshot]
-<img src="https://i.imgur.com/T8L0x1q.png">
+<img src="https://i.imgur.com/K4zjdue.png">
 
 ## [Day 4 - Screenshot]
 <img src="https://imgur.com/YLiRm2u.png">
