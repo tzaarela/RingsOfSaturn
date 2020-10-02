@@ -1,6 +1,5 @@
 public class Enemy extends Entity 
 {
-    int  id;
     float health;
     float maxSpeed;
     float bulletSpeed;
@@ -25,8 +24,8 @@ public class Enemy extends Entity
         this.maxSpeed = 60f;
         this.mode = mode;
         this.spawnTime = millis();
-        this.circleTime = 10000;
-        this.patrolTime = 1500;
+        this.circleTime = 20000;
+        this.patrolTime = 2000;
         this.size = 40;
         this.sprite = Assets.sprites.get("Enemy");
     }

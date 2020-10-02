@@ -1,31 +1,30 @@
 public class Wave  
 {
-	int enemyCount;
+	float enemyCircleLimit = 300;
+	float enemyAttackLimit = 440;
+	float enemySpawnMultiplier = 4;
+	float newWaveTimer = 2000;
+
 	float totalEnemies;
-	float spawnCount;
 	float level;
+	float waveEndTimer;
+
+	boolean hasEnemiesSpawned;
+	boolean hasCreatedEnemies;
+
+	Player player;
+	
 	ArrayList<Enemy> enemies;
 	ArrayList<Enemy> spawningEnemies;
 	ArrayList<Enemy> animatedEnemies;
-	Player player;
-	float enemyAttackLimit = 440;
-	float newWaveTimer = 2000;
-	float waveEndTimer;
-	float attackDirectionX;
-	float attackDirectionY;
-	AudioController audioController;
-	boolean hasEnemiesSpawned;
-	boolean hasCreatedEnemies;
-	PVector attackDirection;
 
-	
+	AudioController audioController;
 
 	public Wave(float level, Player player) 
 	{
 		this.level = level;
 		this.player = player;
-		this.totalEnemies = level;
-		attackDirection = new PVector(random(-1,1), random(-1,1));
+		this.totalEnemies = level * enemySpawnMultiplier;
 		enemies = new ArrayList<Enemy>();
 		spawningEnemies = new ArrayList<Enemy>();
 		animatedEnemies = new ArrayList<Enemy>();
@@ -73,11 +72,11 @@ public class Wave
 		{
 			case isCircling :
 
-				enemy.position.limit(140);
+				enemy.position.limit(enemyCircleLimit);
 
 				if(currentTime - enemy.startPatrolTime > enemy.patrolTime)
 				{
-					enemy.velocity.add(random(-1.0, 1.0), random(-1.0, 1.0));
+					enemy.velocity = new PVector(random(-1.0, 1.0), random(-1.0, 1.0));
 					enemy.startPatrolTime = currentTime;
 				}
 
@@ -135,11 +134,10 @@ public class Wave
 					6, 2, spawnLocation,
 					new PVector(0,0),	
 					EnemyMode.isCircling);
-				enemy.id = ++enemyCount;
 
 				Animation animation =  new Animation(500f, spawnLocation, false);
-				animation.id = enemy.id;
 				Animator.animate(animation, "EnemySpawn");
+
 				enemy.spawnAnimation = animation;
 				spawningEnemies.add(enemy);
 				hasCreatedEnemies = true;
