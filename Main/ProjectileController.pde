@@ -2,9 +2,9 @@ class ProjectileController
 {
 	ArrayList<Projectile> projectiles;
 	float velocityMultiplier;
+	BulletType bulletType;
 
-
-	ProjectileController(Entity entity)
+	ProjectileController()
 	{
 		projectiles = new ArrayList<Projectile>();
 		velocityMultiplier = 100f;
@@ -34,10 +34,22 @@ class ProjectileController
     void draw(Projectile projectile)
     {
 		push();
-		fill(255);
-		stroke(#89F3FF);
-		strokeWeight(20);
-		ellipse(projectile.position.x, projectile.position.y, projectile.size, projectile.size);
+			switch (bulletType) 
+			{
+				case player:
+					fill(255);
+					stroke(#89F3FF);
+					strokeWeight(20);
+					ellipse(projectile.position.x, projectile.position.y, projectile.size, projectile.size);
+					break;
+
+				case enemy:
+					fill(255);
+					stroke(200);
+					strokeWeight(10);
+					ellipse(projectile.position.x, projectile.position.y, projectile.size, projectile.size);
+					break;
+			}
 		pop();
     }
 
@@ -46,9 +58,22 @@ class ProjectileController
 		projectile.position.add(PVector.mult(projectile.velocity, deltaTime * velocityMultiplier));
     }
 
-	void spawnBullet(PVector startPosition, float speed)
+	void spawnBullet(PVector startPosition, float speed, BulletType bulletType)
 	{
-		PVector direction =  startPosition.copy().mult(-1).normalize();
+		this.bulletType = bulletType;
+		PVector direction = new PVector();
+
+		switch (bulletType) 
+		{
+			case player:
+				direction = startPosition.copy().mult(-1).normalize();
+				break;
+
+			case enemy:
+				direction = startPosition.copy().mult(-1).normalize();
+				break;
+		}
+
 		PVector velocity = direction.mult(speed);
 
         Projectile projectile = new Projectile(startPosition.copy(), velocity);

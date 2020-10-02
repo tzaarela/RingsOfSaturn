@@ -10,7 +10,7 @@ class WaveController
 		this.player = player;
 		totalWaves = 5;
 		waves = new ArrayList<Wave>();
-		currentWave = new Wave(1, player);
+		currentWave = new Wave(2, player);
 		waves.add(currentWave);
 	}
 

@@ -2,6 +2,7 @@ class Animation
 {
 	int id;
 	PVector position;
+	float angle;
 	boolean isLooped;
 	float delay;
 	float frameStart;
@@ -11,11 +12,12 @@ class Animation
 	boolean isDone;
 	PImage frame;
 
-	Animation(float delay, PVector position, boolean isLooped) 
+	Animation(float delay, PVector position, float angle, boolean isLooped) 
 	{
 		this.isLooped = isLooped;
 		this.delay = delay;
 		this.position = position;
+		this.angle = angle;
 	}
 
 	PImage getNextFrame()

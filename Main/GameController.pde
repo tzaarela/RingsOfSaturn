@@ -19,7 +19,32 @@ public class GameController
         waveController = new WaveController(playerController.player);
         collisionController = new CollisionController();
         animationController = new AnimationController();
-        
+        loadBackground();
+
+    }
+
+    public void update()
+    {
+        translate(resolutionX / 2, resolutionY / 2);
+
+        int spriteCount = animatedBackground.length;
+        frame = (frame+1) % spriteCount;
+        background(animatedBackground[frame]);
+
+        environmentController.update();
+        playerController.update();
+        animationController.update();
+        waveController.update();
+        collisionController.update
+        (
+            playerController.player,
+            waveController.currentWave.enemies,
+            playerController.projectileController.projectiles
+        );
+    }
+
+    void loadBackground()
+    {
         animatedBackground = new PImage[]
         {
             loadImage("animatedBackground.0001.jpg"),
@@ -73,25 +98,5 @@ public class GameController
             loadImage("animatedBackground.0049.jpg"),
             loadImage("animatedBackground.0050.jpg"),
         };
-    }
-
-    public void update()
-    {
-        translate(resolutionX / 2, resolutionY / 2);
-
-        int spriteCount = animatedBackground.length;
-        frame = (frame+1) % spriteCount;
-        background(animatedBackground[frame]);
-
-        environmentController.update();
-        playerController.update();
-        animationController.update();
-        waveController.update();
-        collisionController.update
-        (
-            playerController.player,
-            waveController.currentWave.enemies,
-            playerController.projectileController.projectiles
-        );
     }
 }

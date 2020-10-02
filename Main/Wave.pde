@@ -8,10 +8,11 @@ public class Wave
 	float totalEnemies;
 	float level;
 	float waveEndTimer;
+	float lastShotTime;
 
 	boolean hasEnemiesSpawned;
 	boolean hasCreatedEnemies;
-
+	ProjectileController projectileController;
 	Player player;
 	
 	ArrayList<Enemy> enemies;
@@ -28,6 +29,7 @@ public class Wave
 		enemies = new ArrayList<Enemy>();
 		spawningEnemies = new ArrayList<Enemy>();
 		animatedEnemies = new ArrayList<Enemy>();
+		projectileController = new ProjectileController();
 		audioController = new AudioController();
 		audioController.loadSound("zapsplat_explosion_big_powerful_internal_002_48731.wav");
 		audioController.volumeSound("zapsplat_explosion_big_powerful_internal_002_48731.wav", 0.075);
@@ -47,6 +49,12 @@ public class Wave
 			push();
 				translate(enemy.position.x, enemy.position.y);
 				moveEnemy(enemy);
+				if(enemy.mode == EnemyMode.isCircling)
+				{	
+					projectileController.update();
+					//shoot(enemy);
+				}
+
 				draw(enemy);
 			pop();	
 		}
@@ -82,11 +90,8 @@ public class Wave
 
 				enemy.position.add(PVector.mult(enemy.velocity, deltaTime * enemy.maxSpeed));
 
-				float playerRadians = (float)Math.atan2(
-					player.position.x - enemy.position.x,
-					player.position.y - enemy.position.y) * -1;	
-				enemy.rotation = degrees(playerRadians);
-				rotate(playerRadians);
+				enemy.rotation = degrees(calculatePlayerRadians(enemy));
+				rotate(calculatePlayerRadians(enemy));
 
 			break;
 
@@ -107,6 +112,14 @@ public class Wave
 		} 
 	}
 
+	float calculatePlayerRadians(Enemy enemy)
+	{
+		float playerRadians = 
+		(float)Math.atan2(player.position.x - enemy.position.x,	player.position.y - enemy.position.y) * -1;	
+
+		return playerRadians;
+	}
+
 	void warpEnemy(Enemy target)
 	{
 		enemies.remove(target);
@@ -117,7 +130,7 @@ public class Wave
 		audioController.stopSound("zapsplat_explosion_big_powerful_internal_002_48731.wav");
 		audioController.playSound("zapsplat_explosion_big_powerful_internal_002_48731.wav");
 		
-		Animation animation =  new Animation(25f, target.position, false);
+		Animation animation =  new Animation(25f, target.position, 0, false);
 		Animator.animate(animation, "Explosion");
 		enemies.remove(target);
 	}
@@ -135,7 +148,7 @@ public class Wave
 					new PVector(0,0),	
 					EnemyMode.isCircling);
 
-				Animation animation =  new Animation(500f, spawnLocation, false);
+				Animation animation =  new Animation(100f, spawnLocation, calculatePlayerRadians(enemy), false);
 				Animator.animate(animation, "EnemySpawn");
 
 				enemy.spawnAnimation = animation;
@@ -157,9 +170,6 @@ public class Wave
 				}
 			}
 
-			// println(totalEnemies);
-			// println(enemies.size());
-
 			if(totalEnemies == animatedEnemies.size() && !hasEnemiesSpawned)
 			{
 				for (Enemy enemy : animatedEnemies) 
@@ -171,4 +181,18 @@ public class Wave
 			}
 		}
 	}
+
+	void shoot(Enemy enemy)
+    {
+		float currentTime = millis();		
+
+		if (currentTime - lastShotTime > enemy.fireCooldown)
+		{
+			//audioController.stopSound("zapsplat_science_fiction_weapon_gun_shoot_003_32196.wav");
+			//audioController.playSound("zapsplat_science_fiction_weapon_gun_shoot_003_32196.wav");
+			
+			projectileController.spawnBullet(enemy.position, 1, BulletType.enemy);
+			lastShotTime = currentTime;
+		}
+    }
 }

@@ -20,7 +20,7 @@ class MainMenu implements Screen
 	void update()
 	{
 		background(background);
-		moveSelection();
+		moveSelection();  
 		drawMenuItems();
 
 		if(isSpacePressed)

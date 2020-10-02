@@ -37,7 +37,10 @@ class AnimationController
 			}
 			if(frame != null)
 			{
+				push();
+				//rotate(animation.angle);
 				image(frame, animation.position.x, animation.position.y);
+				pop();
 			}
 		}
 
