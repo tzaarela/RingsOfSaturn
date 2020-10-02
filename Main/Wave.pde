@@ -5,10 +5,12 @@ public class Wave
 	float level;
 	ArrayList<Enemy> enemies;
 	Player player;
+	float enemyAttackLimit = 440;
 	float newWaveTimer = 2000;
 	float waveEndTimer;
-	float attackDirectionX = random(-1, 1);
-	float attackDirectionY = random(-1, 1);
+	float attackDirectionX;
+	float attackDirectionY;
+	PVector attackDirection;
 
 	
 
@@ -17,6 +19,7 @@ public class Wave
 		this.level = level;
 		this.player = player;
 		this.totalEnemies = level * 2;
+		attackDirection = new PVector(random(-1,1), random(-1,1));
 		enemies = new ArrayList<Enemy>();
 	}
 
@@ -41,7 +44,7 @@ public class Wave
 
 	void draw(Enemy enemy)
 	{
-		image(enemy.sprite, 0, 0, enemy.size, enemy.size);	
+		image(enemy.sprite, 0, 0, enemy.size, enemy.size);
 	}
 
 	void moveEnemy(Enemy enemy)
@@ -78,17 +81,32 @@ public class Wave
 
 			case isSuiciding :
 				
-			
 				enemy.position.limit(resolutionX);
-				enemy.velocity = new PVector(attackDirectionX, attackDirectionY);
+				attackDirection.normalize();
+				enemy.velocity = new PVector(attackDirection.x, attackDirection.y);
 				enemy.position.add(PVector.mult(enemy.velocity, deltaTime * enemy.maxSpeed));
 
 				float rotationSpeed = 3;
-				
+
 				//TODO - Better rotation
-				rotate(enemy.position.heading() - radians(90));
+				float rotationSpeed = radians(10);
+				float rotationGoal = (float)Math.atan2(enemy.velocity.y, enemy.velocity.x) + radians(-90);
+				rotate(rotationGoal);
+				
+				// rotate(enemy.position.heading());
+
+				if(enemy.position.mag() > enemyAttackLimit)
+				{
+					warpEnemy(enemy);
+				}
+
 			break;
 		} 
+	}
+
+	void warpEnemy(Enemy target)
+	{
+		enemies.remove(target);
 	}
 
 	void destroyEnemy(Enemy target)

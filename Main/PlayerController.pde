@@ -26,7 +26,6 @@ class PlayerController
 		moveController.lineStep(getInputVector(), rings);
 		projectileController.update();
 
-
         if (isSpacePressed)
 			shoot();
 
@@ -38,7 +37,7 @@ class PlayerController
 		push();
 		translate(player.position.x, player.position.y);
 		rotate(radians(-moveController.angle));
-		tint(255, 175, 255, 255);
+		// tint(255, 175, 255, 255); 
 		image(player.sprite, 0, 0);	
 		pop();	
 	}
