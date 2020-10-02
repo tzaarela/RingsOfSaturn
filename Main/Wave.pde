@@ -5,8 +5,12 @@ public class Wave
 	float level;
 	ArrayList<Enemy> enemies;
 	Player player;
-		float x = 1;
-				float y = 1;
+	float newWaveTimer = 2000;
+	float waveEndTimer;
+	float attackDirectionX = random(-1, 1);
+	float attackDirectionY = random(-1, 1);
+
+	
 
 	public Wave(float level, Player player) 
 	{
@@ -76,10 +80,12 @@ public class Wave
 				
 			
 				enemy.position.limit(resolutionX);
-				enemy.velocity = new PVector(x, y);
+				enemy.velocity = new PVector(attackDirectionX, attackDirectionY);
 				enemy.position.add(PVector.mult(enemy.velocity, deltaTime * enemy.maxSpeed));
 
-				// rotate((float)Math.atan2(-enemy.velocity.y, enemy.velocity.x));
+				float rotationSpeed = 3;
+				
+				//TODO - Better rotation
 				rotate(enemy.position.heading() - radians(90));
 			break;
 		} 
