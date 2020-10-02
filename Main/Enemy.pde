@@ -8,6 +8,7 @@ public class Enemy extends Entity
     float circleTime;
     float patrolTime;
     float startPatrolTime;
+    float rotation;
     boolean isDead;
     EnemyMode mode;
     

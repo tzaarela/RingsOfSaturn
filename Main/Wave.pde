@@ -91,12 +91,31 @@ public class Wave
 				enemy.velocity = new PVector(attackDirection.x, attackDirection.y);
 				enemy.position.add(PVector.mult(enemy.velocity, deltaTime * enemy.maxSpeed));
 
-				//float rotationSpeed = 3;
 
 				//TODO - Better rotation
-				float rotationSpeed = radians(10);
-				float rotationGoal = (float)Math.atan2(enemy.velocity.y, enemy.velocity.x) + radians(-90);
-				rotate(rotationGoal);
+				float rotationGoal = degrees((float)Math.atan2(enemy.velocity.y, enemy.velocity.x) + radians(-90));
+				float rotationSpeed = rotationGoal / 100;
+
+				println("rotationGoal: " + rotationGoal);
+				println("rotationSpeed: " + rotationSpeed);
+
+				if(rotationGoal > 0)
+				{
+					if(enemy.rotation < rotationGoal)
+					{
+						enemy.rotation += rotationSpeed;
+					}
+				}
+
+				if(rotationGoal < 0)
+				{
+					if(enemy.rotation > rotationGoal)
+					{
+						enemy.rotation -= rotationSpeed;
+					}
+				}
+				
+				rotate(radians(enemy.rotation));
 				
 				// rotate(enemy.position.heading());
 
