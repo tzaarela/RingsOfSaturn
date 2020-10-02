@@ -17,10 +17,16 @@ class WaveController
 
 	void update()
 	{
-
 		if(isWaveFinished(currentWave))
 		{
-			nextWave();
+			float currentTime = millis();
+			if(currentTime == currentWave.waveEndTimer + currentTime)
+				currentWave.waveEndTimer = currentTime;
+
+			if(currentWave.newWaveTimer + currentWave.waveEndTimer < millis())
+			{
+				nextWave();
+			}
 		}
 
 		currentWave.spawnEnemy();
