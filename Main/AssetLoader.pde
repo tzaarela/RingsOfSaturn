@@ -9,6 +9,8 @@ class AssetLoader
 		images.add(loadImage("Explosion02.png"));
 		images.add(loadImage("Explosion03.png"));
 		images.add(loadImage("Explosion04.png"));
+		images.add(loadImage("Explosion05.png"));
+		images.add(loadImage("Explosion06.png"));
 		Animator.loadFrames("Explosion", images);
 	}
 }

@@ -14,11 +14,12 @@ class AnimationController
 	void drawAnimations()
 	{
 		ArrayList<Animation> animations = Animator.animations;
-		println("animationCount: " + animations.size());
+		
 		for (int i = 0; i < animations.size(); ++i) 
 		{	
 			Animation animation = animations.get(i);
 	        animation.frameStart = millis();
+
 			if (animation.frameStart - animation.frameEnd > animation.delay)
 			{
 				frame = animation.getNextFrame();
@@ -28,6 +29,7 @@ class AnimationController
 					Animator.stop(animation);
 					continue;
 				}
+
 				animation.frameEnd = animation.frameStart;
 			}
 			image(frame, animation.position.x, animation.position.y);
