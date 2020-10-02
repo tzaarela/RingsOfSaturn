@@ -17,7 +17,7 @@ class ScreenController
 		audioController = new AudioController();
 		audioController.loadSound("scott-buckley-signal-to-noise.wav");
 		audioController.loopSound("scott-buckley-signal-to-noise.wav");
-		audioController.volumeSound("scott-buckley-signal-to-noise.wav", 0.3);
+		audioController.volumeSound("scott-buckley-signal-to-noise.wav", 0.15);
 		
 		currentScreen = mainMenu;
 	}

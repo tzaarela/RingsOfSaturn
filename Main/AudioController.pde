@@ -31,4 +31,9 @@ class AudioController
 	{
 		sounds.get(soundFile).sound.amp(volume);
 	}
+
+	void rateOfSound(String soundFile, float rate)
+	{
+		sounds.get(soundFile).sound.rate(rate);
+	}
 }
