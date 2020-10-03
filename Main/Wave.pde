@@ -33,7 +33,7 @@ public class Wave
 
 		audioController = new AudioController();
 		audioController.loadSound("Sound/explosion_big_powerful.wav");
-		audioController.volumeSound("Sound/explosion_big_powerful.wav", 0.04);
+		audioController.volumeSound("Sound/explosion_big_powerful.wav", 0.06);
 
 		audioController.loadSound("Sound/new_enemy_wave.wav");
 		audioController.volumeSound("Sound/new_enemy_wave.wav", 0.3);

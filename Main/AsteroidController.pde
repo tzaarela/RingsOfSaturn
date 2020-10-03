@@ -8,7 +8,7 @@ class AstroidController
 	{
 		this.rings = rings;
 		PVector velocity = new PVector(1, 1);
-		astroid = new Astroid(rings[2], 3, velocity);
+		astroid = new Astroid(rings[2], velocity);
 		moveController = new MoveController(astroid);
 	}
 

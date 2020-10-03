@@ -20,8 +20,8 @@ PVector getInputVector()
 
 void setInputs(int keyCode, boolean isPressed)
 {
-    switch (keyCode) {
-
+    switch (keyCode) 
+    {
         case 'A' :
         case 37 :
         isLeftPressed = isPressed;

@@ -24,36 +24,26 @@ class AssetLoader
 		enemySpawn.add(loadImage("Sprites/EnemySpawn06.png"));
 		Animator.loadFrames("EnemySpawn", enemySpawn);
 
-		//Player Teleports
+		//Player Teleport
 		ArrayList<PImage> playerTeleport = new ArrayList<PImage>();
-		playerTeleport.add(loadImage("Sprites/PlayerTeleport00.png"));
-		playerTeleport.add(loadImage("Sprites/PlayerTeleport01.png"));
-		playerTeleport.add(loadImage("Sprites/PlayerTeleport02.png"));
-		playerTeleport.add(loadImage("Sprites/PlayerTeleport03.png"));
-		playerTeleport.add(loadImage("Sprites/PlayerTeleport04.png"));
-		playerTeleport.add(loadImage("Sprites/PlayerTeleport05.png"));
-		playerTeleport.add(loadImage("Sprites/PlayerTeleport06.png"));
 		playerTeleport.add(loadImage("Sprites/PlayerTeleport07.png"));
+		playerTeleport.add(loadImage("Sprites/PlayerTeleport06.png"));
+		playerTeleport.add(loadImage("Sprites/PlayerTeleport05.png"));
+		playerTeleport.add(loadImage("Sprites/PlayerTeleport04.png"));
+		playerTeleport.add(loadImage("Sprites/PlayerTeleport03.png"));
+		playerTeleport.add(loadImage("Sprites/PlayerTeleport02.png"));
+		playerTeleport.add(loadImage("Sprites/PlayerTeleport01.png"));
+		playerTeleport.add(loadImage("Sprites/PlayerTeleport00.png"));
 		Animator.loadFrames("PlayerTeleport", playerTeleport);
-
-		//Player Spawns
-		ArrayList<PImage> playerSpawns = new ArrayList<PImage>();
-		playerSpawns.add(loadImage("Sprites/PlayerTeleport07.png"));
-		playerSpawns.add(loadImage("Sprites/PlayerTeleport06.png"));
-		playerSpawns.add(loadImage("Sprites/PlayerTeleport05.png"));
-		playerSpawns.add(loadImage("Sprites/PlayerTeleport04.png"));
-		playerSpawns.add(loadImage("Sprites/PlayerTeleport03.png"));
-		playerSpawns.add(loadImage("Sprites/PlayerTeleport02.png"));
-		playerSpawns.add(loadImage("Sprites/PlayerTeleport01.png"));
-		playerSpawns.add(loadImage("Sprites/PlayerTeleport00.png"));
-		Animator.loadFrames("PlayerSpawns", playerSpawns);
 	}
 
 	void loadSprites()
 	{
 		Assets.loadSprites("Enemy", loadImage("Sprites/Enemy00.png"));
 		Assets.loadSprites("Astroid", loadImage("Sprites/Astroid.png"));
-		Assets.loadSprites("Player", loadImage("Sprites/PlayerRevampedTurquoise.png"));
+		Assets.loadSprites("Player", loadImage("Sprites/PlayerShip.png"));
+		Assets.loadSprites("PlayerTurnLeft", loadImage("Sprites/PlayerTurnLeft.png"));
+		Assets.loadSprites("PlayerTurnRight", loadImage("Sprites/PlayerTurnRight.png"));
 	}
 
 

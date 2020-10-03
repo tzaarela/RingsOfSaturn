@@ -3,11 +3,10 @@ class Astroid extends Entity
 
 	float health;
 	
-	Astroid (Ring currentRing, float health, PVector velocity) 
+	Astroid (Ring currentRing, PVector velocity) 
 	{
 		this.currentRing = currentRing;
 		this.sprite = Assets.sprites.get("Astroid");
-		this.health = health;
         this.velocity = velocity;
 		this.size = 60;
 	}

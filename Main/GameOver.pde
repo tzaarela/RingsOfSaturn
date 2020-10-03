@@ -1,14 +1,12 @@
-class MainMenu implements Screen
+class GameOver implements Screen
 {	
-	PImage background;
 	PFont font;
 	ArrayList<MenuItem> menuItems;
 	float moveTime;
 	float moveCooldown;
 
-	public MainMenu () 
+	public GameOver() 
 	{
-		background = loadImage("Menu/Menu.png");
 		font = createFont("Font/alienleague.ttf", 72);
 		menuItems = createMenuItems();
 		moveCooldown = 200;
@@ -19,7 +17,6 @@ class MainMenu implements Screen
 
 	void update()
 	{
-		background(background);
 		drawMenuItems();
 		moveSelection();
 		pressSelection();  
@@ -47,7 +44,7 @@ class MainMenu implements Screen
 					if(menuItems.get(i).isSelected)
 					{
 						menuItems.get(i).isSelected = false;
-						menuItems.get(i - 1 == -1 ? 3 : i - 1).isSelected = true;
+						menuItems.get(i - 1 == -1 ? 1 : i - 1).isSelected = true;
 						break;
 					}
 				}
@@ -60,7 +57,7 @@ class MainMenu implements Screen
 					if(menuItems.get(i).isSelected)
 					{
 						menuItems.get(i).isSelected = false;
-						menuItems.get(i + 1 == 4 ? 0 : i + 1).isSelected = true;
+						menuItems.get(i + 1 == 1 ? 0 : i + 1).isSelected = true;
 						break;
 					}
 				}
@@ -78,12 +75,12 @@ class MainMenu implements Screen
 			
 			switch (menuItem.text) 
 			{
-				case "START GAME":
-				startGame();
+				case "PLAY AGAIN":
+				playAgain();
 				break;
 
-				case "EXIT GAME":
-				exitGame();
+				case "BACK TO MAIN MENU":
+				backToMainMenu();
 				break;
 			}
 		}
@@ -105,31 +102,20 @@ class MainMenu implements Screen
 	ArrayList<MenuItem> createMenuItems()
 	{
 		ArrayList<MenuItem> items = new ArrayList<MenuItem>();
-		items.add(new MenuItem("START GAME", resolutionX / 2, 500));
+		items.add(new MenuItem("PLAY AGAIN", resolutionX / 2, 500));
 		items.get(0).isSelected = true;
-		items.add(new MenuItem("HIGH SCORE", resolutionX / 2, 580));
-		items.add(new MenuItem("OPTIONS", resolutionX / 2, 660));
-		items.add(new MenuItem("EXIT GAME", resolutionX / 2, 740));
+		items.add(new MenuItem("BACK TO MAIN MENU", resolutionX / 2, 580));
 		return items;
 	}
 
-	void startGame()
+	void playAgain()
 	{
 		gameState = GameState.inGame;
 	}
 
-	void showHighscore()
+	void backToMainMenu()
 	{
-		gameState = GameState.inHighscore;
+		gameState = GameState.inMainMenu;
 	}
 
-	void options()
-	{
-		//NotImplemented
-	}
-
-	void exitGame()
-	{
-		exit();
-	}
 }

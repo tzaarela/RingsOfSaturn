@@ -10,12 +10,14 @@ class PlayerController
 
 	PlayerController(Ring[] rings)
 	{
+		this.rings = rings;
 		player = new Player(rings[rings.length - 1]);
 		moveController = new MoveController(player);
 		projectileController = new ProjectileController();
+
 		audioController = new AudioController();
 		audioController.loadSound("Sound/weapon_gun_shoot.wav");
-		audioController.volumeSound("Sound/weapon_gun_shoot.wav", 0.009);
+		audioController.volumeSound("Sound/weapon_gun_shoot.wav", 0.025);
 
 		audioController.loadSound("Sound/explosion_big_powerful2.wav");
 		audioController.volumeSound("Sound/explosion_big_powerful2.wav", 0.15);
@@ -23,8 +25,6 @@ class PlayerController
 		audioController.loadSound("Sound/player_teleport.wav");
 		audioController.volumeSound("Sound/player_teleport.wav", 0.75);
 		audioController.rateOfSound("Sound/player_teleport.wav", 2f);
-
-		this.rings = rings;
 	}
 
 	void update()
@@ -48,29 +48,46 @@ class PlayerController
 	void draw(boolean hasTeleported)
 	{
 		float angle = radians(-moveController.angle);
+		PVector input = getInputVector();
 
 		push();
 		translate(player.position.x, player.position.y);
 		rotate(angle);
 		tint(255, 175, 255, 255); 
+
 		if (hasTeleported)
 		{
 			audioController.playSound("Sound/player_teleport.wav");
 
 			Animation animation = new Animation(25f, player.position, angle, 1, false);
-			Animator.animate(animation, "PlayerSpawns");			
+			Animator.animate(animation, "PlayerTeleport");			
 			player.teleportAnimation = animation;
 		}
 		else if (player.teleportAnimation == null)
 		{
-			image(player.sprite, 0, 0);	
+			println("input x: " + input.x);
+			
+			if (input.x == 0)
+				image(player.sprite, 0, 0);	
+
+			else if (input.x < 0)
+				image(player.spriteLeft, 0, 0);	
+
+			else if (input.x > 0)
+				image(player.spriteRight, 0, 0);	
 		}
 		else if (player.teleportAnimation.isDone)
 		{
-			image(player.sprite, 0, 0);	
-		}
+			if (input.x == 0)
+				image(player.sprite, 0, 0);	
 
-		
+			else if (input.x < 0)
+				image(player.spriteLeft, 0, 0);	
+
+			else if (input.x > 0)
+				image(player.spriteRight, 0, 0);	
+		}
+				
 		pop();	
 	}
 

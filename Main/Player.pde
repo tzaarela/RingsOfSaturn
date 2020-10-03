@@ -12,6 +12,9 @@ class Player extends Entity
     Animation teleportAnimation;
     Animation spawnAnimation;
 
+    PImage spriteLeft;
+    PImage spriteRight;
+
     Powerup currentPowerup;
 
 
@@ -23,6 +26,8 @@ class Player extends Entity
         this.fireCooldown = 150;
         this.isPlayable = true;
         this.sprite = Assets.sprites.get("Player");
+        this.spriteLeft = Assets.sprites.get("PlayerTurnLeft");
+        this.spriteRight = Assets.sprites.get("PlayerTurnRight");
     }
 
 }
