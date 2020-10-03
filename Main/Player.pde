@@ -9,6 +9,8 @@ class Player extends Entity
     float jumpCooldown;
     boolean isDead;
     boolean isPlayable;
+    Animation teleportAnimation;
+    Animation spawnAnimation;
 
     Powerup currentPowerup;
 

@@ -58,7 +58,7 @@ public class MoveController
 		acceleration.set(0, 0);
 	}
 
-	void lineStep(PVector input, Ring[] rings)
+	boolean teleport(PVector input, Ring[] rings)
 	{
 		float currentTime = millis();
 
@@ -68,15 +68,18 @@ public class MoveController
 			{	
 				entity.currentRing = rings[entity.currentRing.level - 1];
 				stepTime = currentTime;
+				return true;
 			}
 					
 			else if (input.y > 0 && entity.currentRing.level < rings.length - 1)
 			{
 				entity.currentRing = rings[entity.currentRing.level + 1];
 				stepTime = currentTime;
+				return true;
 			}		
-
 		}
+
+		return false;
 	}
 
 }

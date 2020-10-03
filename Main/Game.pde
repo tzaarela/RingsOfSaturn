@@ -2,6 +2,7 @@ class Game implements Screen
 {
 	GameController gameController;
 	boolean isStarted;
+	boolean restart;
 
 	public Game() 
 	{

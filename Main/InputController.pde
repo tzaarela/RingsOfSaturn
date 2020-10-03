@@ -44,6 +44,6 @@ void setInputs(int keyCode, boolean isPressed)
 
         case ' ' :
         isSpacePressed = isPressed;
-        break;	
+        break;
     }
 }

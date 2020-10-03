@@ -41,7 +41,7 @@ class AnimationController
 				push();
 				translate(animation.position.x, animation.position.y);
 				scale(animation.scale);
-				//rotate(animation.angle);
+				rotate(animation.angle);
 				image(frame, 0, 0);
 				pop();
 			}

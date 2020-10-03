@@ -23,6 +23,30 @@ class AssetLoader
 		enemySpawn.add(loadImage("Sprites/EnemySpawn05.png"));
 		enemySpawn.add(loadImage("Sprites/EnemySpawn06.png"));
 		Animator.loadFrames("EnemySpawn", enemySpawn);
+
+		//Player Teleports
+		ArrayList<PImage> playerTeleport = new ArrayList<PImage>();
+		playerTeleport.add(loadImage("Sprites/PlayerTeleport00.png"));
+		playerTeleport.add(loadImage("Sprites/PlayerTeleport01.png"));
+		playerTeleport.add(loadImage("Sprites/PlayerTeleport02.png"));
+		playerTeleport.add(loadImage("Sprites/PlayerTeleport03.png"));
+		playerTeleport.add(loadImage("Sprites/PlayerTeleport04.png"));
+		playerTeleport.add(loadImage("Sprites/PlayerTeleport05.png"));
+		playerTeleport.add(loadImage("Sprites/PlayerTeleport06.png"));
+		playerTeleport.add(loadImage("Sprites/PlayerTeleport07.png"));
+		Animator.loadFrames("PlayerTeleport", playerTeleport);
+
+		//Player Spawns
+		ArrayList<PImage> playerSpawns = new ArrayList<PImage>();
+		playerSpawns.add(loadImage("Sprites/PlayerTeleport07.png"));
+		playerSpawns.add(loadImage("Sprites/PlayerTeleport06.png"));
+		playerSpawns.add(loadImage("Sprites/PlayerTeleport05.png"));
+		playerSpawns.add(loadImage("Sprites/PlayerTeleport04.png"));
+		playerSpawns.add(loadImage("Sprites/PlayerTeleport03.png"));
+		playerSpawns.add(loadImage("Sprites/PlayerTeleport02.png"));
+		playerSpawns.add(loadImage("Sprites/PlayerTeleport01.png"));
+		playerSpawns.add(loadImage("Sprites/PlayerTeleport00.png"));
+		Animator.loadFrames("PlayerSpawns", playerSpawns);
 	}
 
 	void loadSprites()

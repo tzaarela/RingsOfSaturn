@@ -3,6 +3,7 @@ class PlayerController
 	float lastShotTime;
 	Player player;
 	Ring[] rings;
+	boolean hasTeleported;
 	MoveController moveController;
 	ProjectileController projectileController;
 	AudioController audioController;
@@ -16,8 +17,12 @@ class PlayerController
 		audioController.loadSound("Sound/weapon_gun_shoot.wav");
 		audioController.volumeSound("Sound/weapon_gun_shoot.wav", 0.009);
 
-		audioController.loadSound("Sound/explosion_big_powerful.wav");
-		audioController.volumeSound("Sound/explosion_big_powerful.wav", 0.1);
+		audioController.loadSound("Sound/explosion_big_powerful2.wav");
+		audioController.volumeSound("Sound/explosion_big_powerful2.wav", 0.15);
+
+		audioController.loadSound("Sound/player_teleport.wav");
+		audioController.volumeSound("Sound/player_teleport.wav", 0.75);
+		audioController.rateOfSound("Sound/player_teleport.wav", 2f);
 
 		this.rings = rings;
 	}
@@ -27,7 +32,7 @@ class PlayerController
 		if (player.isPlayable)
 		{
 			moveController.orbit(getInputVector(), 0, 0);
-			moveController.lineStep(getInputVector(), rings);
+			hasTeleported = moveController.teleport(getInputVector(), rings);
 			projectileController.update();
 
 			if (isSpacePressed)
@@ -36,17 +41,36 @@ class PlayerController
 			if (player.isDead)
 				die(player);
 			else
-				draw();
+				draw(hasTeleported);
 		}
 	}
 
-	void draw()
+	void draw(boolean hasTeleported)
 	{
+		float angle = radians(-moveController.angle);
+
 		push();
 		translate(player.position.x, player.position.y);
-		rotate(radians(-moveController.angle));
+		rotate(angle);
 		tint(255, 175, 255, 255); 
-		image(player.sprite, 0, 0);	
+		if (hasTeleported)
+		{
+			audioController.playSound("Sound/player_teleport.wav");
+
+			Animation animation = new Animation(25f, player.position, angle, 1, false);
+			Animator.animate(animation, "PlayerSpawns");			
+			player.teleportAnimation = animation;
+		}
+		else if (player.teleportAnimation == null)
+		{
+			image(player.sprite, 0, 0);	
+		}
+		else if (player.teleportAnimation.isDone)
+		{
+			image(player.sprite, 0, 0);	
+		}
+
+		
 		pop();	
 	}
 
@@ -66,7 +90,7 @@ class PlayerController
 
     void die(Player player)
     {
-		audioController.playSound("Sound/explosion_big_powerful.wav");
+		audioController.playSound("Sound/explosion_big_powerful2.wav");
 		
 		Animation animation = new Animation(100f, player.position, 0, 1.5, false);
 		Animator.animate(animation, "Explosion");
