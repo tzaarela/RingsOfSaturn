@@ -49,11 +49,11 @@ public class Wave
 			push();
 				translate(enemy.position.x, enemy.position.y);
 				moveEnemy(enemy);
-				if(enemy.mode == EnemyMode.isCircling)
-				{	
-					projectileController.update();
-					//shoot(enemy);
-				}
+				// if(enemy.mode == EnemyMode.isCircling)
+				// {	
+				// 	projectileController.update();
+				// 	//shoot(enemy);
+				// }
 
 				draw(enemy);
 			pop();	
@@ -71,14 +71,14 @@ public class Wave
 
 		if (currentTime - enemy.spawnTime > enemy.circleTime)
 		{
-			enemy.mode = EnemyMode.isSuiciding;
+			enemy.mode = EnemyMode.isEscaping;
 		}
 
 		enemy.velocity.limit(enemy.maxSpeed);
 
 		switch (enemy.mode) 
 		{
-			case isCircling :
+			case isFighting :
 
 				enemy.position.limit(enemyCircleLimit);
 
@@ -95,7 +95,7 @@ public class Wave
 
 			break;
 
-			case isSuiciding :
+			case isEscaping :
 				
 				enemy.position.limit(resolutionX);
 				enemy.velocity.normalize();
@@ -146,7 +146,7 @@ public class Wave
 				Enemy enemy = new Enemy(
 					6, 2, spawnLocation,
 					new PVector(0,0),	
-					EnemyMode.isCircling);
+					EnemyMode.isFighting);
 
 				Animation animation =  new Animation(100f, spawnLocation, calculatePlayerRadians(enemy), false);
 				Animator.animate(animation, "EnemySpawn");

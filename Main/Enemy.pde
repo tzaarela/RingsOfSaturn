@@ -44,8 +44,3 @@ public class Enemy extends Entity
     }
 }
 
-enum EnemyMode
-{
-    isCircling,
-    isSuiciding
-}

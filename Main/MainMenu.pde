@@ -20,13 +20,40 @@ class MainMenu implements Screen
 	void update()
 	{
 		background(background);
-		moveSelection();  
 		drawMenuItems();
+		moveSelection();
+		pressSelection();  
+	}
 
+	void pressSelection()
+	{
 		if(isSpacePressed)
 		{
-			startGame();
+			MenuItem menuItem = getSelectedMenuItem();
+			
+			switch (menuItem.text) 
+			{
+				case "START GAME":
+				startGame();
+				break;
+
+				case "EXIT GAME":
+				exitGame();
+				break;
+			}
 		}
+	}
+
+	MenuItem getSelectedMenuItem()
+	{
+		for (MenuItem menuItem : menuItems) 
+		{
+			if(menuItem.isSelected)
+			{
+				return menuItem;
+			}
+		}
+		return null;
 	}
 
 	void moveSelection()
@@ -72,7 +99,7 @@ class MainMenu implements Screen
 			menuItem.draw();
 		}
 	}
-
+ 
 	ArrayList<MenuItem> createMenuItems()
 	{
 		ArrayList<MenuItem> items = new ArrayList<MenuItem>();
