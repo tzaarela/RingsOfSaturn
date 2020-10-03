@@ -63,18 +63,12 @@ class ProjectileController
 		this.bulletType = bulletType;
 		PVector direction = new PVector();
 
-
-		PVector mousePosition = new PVector(mouseX - resolutionX / 2, mouseY - resolutionY / 2);
-
-		println(mousePosition.x);		
-		println(mousePosition.y);		
-
-
 		switch (bulletType) 
 		{
 			case player:
 				
-				direction = mousePosition.sub(startPosition).mult(10);
+				PVector mousePosition = new PVector(mouseX - resolutionX / 2, mouseY - resolutionY / 2);
+				direction = mousePosition.sub(startPosition).normalize();
 				break;
 
 			case enemy:

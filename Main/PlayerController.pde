@@ -50,7 +50,7 @@ class PlayerController
 			audioController.stopSound("zapsplat_science_fiction_weapon_gun_shoot_003_32196.wav");
 			audioController.playSound("zapsplat_science_fiction_weapon_gun_shoot_003_32196.wav");
 			
-			projectileController.spawnBullet(player.position, 0.6, BulletType.player);
+			projectileController.spawnBullet(player.position, 5000, BulletType.player);
 			lastShotTime = currentTime;
 		}
     }
