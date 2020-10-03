@@ -37,10 +37,11 @@ class ProjectileController
 			switch (bulletType) 
 			{
 				case player:
-					fill(255);
-					stroke(#89F3FF);
-					strokeWeight(20);
-					ellipse(projectile.position.x, projectile.position.y, projectile.size, projectile.size);
+					fill(#89F3FF);
+					noStroke();
+					translate(projectile.position.x, projectile.position.y);
+					rotate(projectile.velocity.heading());
+					ellipse(0, 0, 40, 10);
 					break;
 
 				case enemy:
