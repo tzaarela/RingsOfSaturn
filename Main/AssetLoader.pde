@@ -28,6 +28,7 @@ class AssetLoader
 	void loadSprites()
 	{
 		Assets.loadSprites("Enemy", loadImage("Enemy00.png"));
+		Assets.loadSprites("Astroid", loadImage("Astroid.png"));
 	}
 
 
