@@ -1,6 +1,6 @@
 public class Wave  
 {
-	float enemyCircleLimit = 300;
+	float enemyCircleLimit = 360;
 	float enemyAttackLimit = 440;
 	float enemySpawnMultiplier = 4;
 	float newWaveTimer = 2000;
@@ -14,7 +14,7 @@ public class Wave
 	boolean hasCreatedEnemies;
 	ProjectileController projectileController;
 	Player player;
-	
+
 	ArrayList<Enemy> enemies;
 	ArrayList<Enemy> spawningEnemies;
 	ArrayList<Enemy> animatedEnemies;

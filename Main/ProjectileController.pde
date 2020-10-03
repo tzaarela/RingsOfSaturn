@@ -7,7 +7,7 @@ class ProjectileController
 	ProjectileController()
 	{
 		projectiles = new ArrayList<Projectile>();
-		velocityMultiplier = 100f;
+		velocityMultiplier = 0.4f;
 	}
 
 
@@ -63,10 +63,18 @@ class ProjectileController
 		this.bulletType = bulletType;
 		PVector direction = new PVector();
 
+
+		PVector mousePosition = new PVector(mouseX - resolutionX / 2, mouseY - resolutionY / 2);
+
+		println(mousePosition.x);		
+		println(mousePosition.y);		
+
+
 		switch (bulletType) 
 		{
 			case player:
-				direction = startPosition.copy().mult(-1).normalize();
+				
+				direction = mousePosition.sub(startPosition).mult(10);
 				break;
 
 			case enemy:

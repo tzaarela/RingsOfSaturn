@@ -22,11 +22,11 @@ public class Enemy extends Entity
         this.damage = damage;
         this.position = position;
         this.velocity = velocity;
-        this.maxSpeed = 60f;
+        this.maxSpeed = 100f;
         this.mode = mode;
         this.spawnTime = millis();
-        this.circleTime = 20000;
-        this.patrolTime = 2000;
+        this.circleTime = 25000;
+        this.patrolTime = random(1000,5000);
         this.fireCooldown = 300f;
         this.size = 40;
         this.sprite = Assets.sprites.get("Enemy");
