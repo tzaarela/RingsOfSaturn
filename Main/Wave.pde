@@ -30,9 +30,13 @@ public class Wave
 		spawningEnemies = new ArrayList<Enemy>();
 		animatedEnemies = new ArrayList<Enemy>();
 		projectileController = new ProjectileController();
+
 		audioController = new AudioController();
-		audioController.loadSound("zapsplat_explosion_big_powerful_internal_002_48731.wav");
-		audioController.volumeSound("zapsplat_explosion_big_powerful_internal_002_48731.wav", 0.15);
+		audioController.loadSound("Sound/explosion_big_powerful.wav");
+		audioController.volumeSound("Sound/explosion_big_powerful.wav", 0.04);
+
+		audioController.loadSound("Sound/new_enemy_wave.wav");
+		audioController.volumeSound("Sound/new_enemy_wave.wav", 0.3);
 	}
 
 	void update()
@@ -105,7 +109,7 @@ public class Wave
 
 				if(enemy.position.mag() > enemyAttackLimit)
 				{
-					warpEnemy(enemy);
+					//warpEnemy(enemy);
 				}
 
 			break;
@@ -127,10 +131,10 @@ public class Wave
 
 	void destroyEnemy(Enemy target)
 	{	
-		audioController.stopSound("zapsplat_explosion_big_powerful_internal_002_48731.wav");
-		audioController.playSound("zapsplat_explosion_big_powerful_internal_002_48731.wav");
+		//audioController.stopSound("Sound/explosion_big_powerful");
+		audioController.playSound("Sound/explosion_big_powerful.wav");
 		
-		Animation animation =  new Animation(25f, target.position, 0, false);
+		Animation animation =  new Animation(25f, target.position, 0, 1, false);
 		Animator.animate(animation, "Explosion");
 		enemies.remove(target);
 	}
@@ -139,6 +143,8 @@ public class Wave
 	{
 		if(!hasCreatedEnemies)
 		{
+			audioController.playSound("Sound/new_enemy_wave.wav");
+
 			for (int i = 0; i < totalEnemies; ++i) 
 			{
 				PVector spawnLocation = new PVector(random(-75, 75), random(-75, 75));
@@ -148,7 +154,7 @@ public class Wave
 					new PVector(0,0),	
 					EnemyMode.isFighting);
 
-				Animation animation =  new Animation(100f, spawnLocation, calculatePlayerRadians(enemy), false);
+				Animation animation =  new Animation(100f, spawnLocation, calculatePlayerRadians(enemy), 1, false);
 				Animator.animate(animation, "EnemySpawn");
 
 				enemy.spawnAnimation = animation;
@@ -188,8 +194,8 @@ public class Wave
 
 		if (currentTime - lastShotTime > enemy.fireCooldown)
 		{
-			//audioController.stopSound("zapsplat_science_fiction_weapon_gun_shoot_003_32196.wav");
-			//audioController.playSound("zapsplat_science_fiction_weapon_gun_shoot_003_32196.wav");
+			//audioController.stopSound("Sound/weapon_gun_shoot.wav");
+			//audioController.playSound("Sound/weapon_gun_shoot.wav");
 			
 			projectileController.spawnBullet(enemy.position, 1, BulletType.enemy);
 			lastShotTime = currentTime;

@@ -7,17 +7,19 @@ class Animation
 	float delay;
 	float frameStart;
 	float frameEnd;
+	float scale;
 	int frameIndex;
 	ArrayList<PImage> frames;
 	boolean isDone;
 	PImage frame;
 
-	Animation(float delay, PVector position, float angle, boolean isLooped) 
+	Animation(float delay, PVector position, float angle, float scale, boolean isLooped) 
 	{
 		this.isLooped = isLooped;
 		this.delay = delay;
 		this.position = position;
 		this.angle = angle;
+		this.scale = scale;
 	}
 
 	PImage getNextFrame()

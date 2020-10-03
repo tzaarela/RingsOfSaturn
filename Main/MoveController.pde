@@ -45,14 +45,16 @@ public class MoveController
 	}
 
 	
-	void lineMove(PVector input)
+	void orbit(PVector input, float degreeXOffset, float degreeYOffset)
 	{
 		calculateVelocity(input);
 
 		angle += velocity.x * rotateSpeed * deltaTime;
-		PVector center = new PVector(0, 0);
-		PVector offset = new PVector(sin(radians(angle)), cos(radians(angle))).mult(entity.currentRing.radius);
-		PVector.add(center, offset, entity.position);
+		PVector positionOnRing = new PVector(sin(radians(angle + degreeXOffset)), 
+											cos(radians(angle + degreeYOffset))).
+											mult(entity.currentRing.radius);
+		PVector offset = new PVector(0, 0);
+		PVector.add(positionOnRing, offset, entity.position);
 		acceleration.set(0, 0);
 	}
 

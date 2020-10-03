@@ -9,5 +9,6 @@ class Astroid extends Entity
 		this.sprite = Assets.sprites.get("Astroid");
 		this.health = health;
         this.velocity = velocity;
+		this.size = 60;
 	}
 }

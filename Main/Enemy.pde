@@ -28,17 +28,15 @@ public class Enemy extends Entity
         this.circleTime = 25000;
         this.patrolTime = random(1000,5000);
         this.fireCooldown = 300f;
-        this.size = 40;
+        this.size = 50;
         this.sprite = Assets.sprites.get("Enemy");
     }
 
     void takeDamage(float damage)
     {
-        println("Enemy taking damage...");
         health -= damage;
         if (health <= 0)
         {
-            println("Enemy is dead!");
             isDead = true;
         }
     }

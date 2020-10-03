@@ -7,6 +7,8 @@ class Player extends Entity
     float bulletSpeed;
     float damage;
     float jumpCooldown;
+    boolean isDead;
+    boolean isPlayable;
 
     Powerup currentPowerup;
 
@@ -17,7 +19,8 @@ class Player extends Entity
         this.size = 40;
         this.jumpCooldown = 250;
         this.fireCooldown = 150;
-        sprite = loadImage("PlayerRevampedTurquoise.png");
+        this.isPlayable = true;
+        this.sprite = Assets.sprites.get("Player");
     }
 
 }

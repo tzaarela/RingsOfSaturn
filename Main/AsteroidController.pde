@@ -14,7 +14,7 @@ class AstroidController
 
 	void update()
 	{
-		moveController.lineMove(astroid.velocity);
+		moveController.orbit(astroid.velocity, 85, 100);
 		draw();
 	}
 
@@ -22,7 +22,6 @@ class AstroidController
 	{
 		push();
 		translate(astroid.position.x, astroid.position.y);
-		translate(50, 50);
 		image(astroid.sprite, 0, 0);	
 		pop();	
 	}

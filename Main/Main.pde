@@ -19,7 +19,7 @@ void setup()
   surface.setSize(resolutionX, resolutionY);
   surface.setLocation(0, 0);
   surface.setAlwaysOnTop(true);
-  fullScreen();
+  //fullScreen();
   mainInstance = this;
   assetLoader = new AssetLoader();
   screenController = new ScreenController();

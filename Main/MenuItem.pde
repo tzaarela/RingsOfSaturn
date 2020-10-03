@@ -11,7 +11,7 @@ class MenuItem
 		this.x = x;
 		this.y = y;
 		this.text = text;
-		selectedImage = loadImage("MenuHighlight.png");
+		selectedImage = loadImage("Menu/MenuHighlight.png");
 	}
 
 	void draw()

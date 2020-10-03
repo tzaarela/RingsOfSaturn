@@ -2,6 +2,7 @@ class AnimationController
 {
 	float counter;
 	PImage frame = new PImage();
+	
 	AnimationController() 
 	{
 		
@@ -38,8 +39,10 @@ class AnimationController
 			if(frame != null)
 			{
 				push();
+				translate(animation.position.x, animation.position.y);
+				scale(animation.scale);
 				//rotate(animation.angle);
-				image(frame, animation.position.x, animation.position.y);
+				image(frame, 0, 0);
 				pop();
 			}
 		}

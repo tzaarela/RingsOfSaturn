@@ -8,8 +8,8 @@ class MainMenu implements Screen
 
 	public MainMenu () 
 	{
-		background = loadImage("Menu.png");
-		font = createFont("alienleague.ttf", 72);
+		background = loadImage("Menu/Menu.png");
+		font = createFont("Font/alienleague.ttf", 72);
 		menuItems = createMenuItems();
 		moveCooldown = 200;
 
@@ -79,7 +79,6 @@ class MainMenu implements Screen
 			{
 				for (int i = 0; i < menuItems.size(); ++i) 
 				{
-					// println("selected " + i + menuItems.get(i).isSelected );
 					if(menuItems.get(i).isSelected)
 					{
 						menuItems.get(i).isSelected = false;

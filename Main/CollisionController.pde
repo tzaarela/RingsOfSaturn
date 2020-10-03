@@ -5,7 +5,7 @@ class CollisionController
 		
 	}
 
-	void update(Player player, ArrayList<Enemy> enemies, ArrayList<Projectile> projectiles)
+	void update(Player player, ArrayList<Enemy> enemies, ArrayList<Projectile> projectiles, Astroid astroid)
 	{
 		for (Enemy enemy : enemies) 
 		{
@@ -19,7 +19,18 @@ class CollisionController
 						projectile.isDestroyed = true;
 					}
 				}	
+				
+				if(enemy.isColliding(astroid))
+				{
+					enemy.isDead = true;
+				}
 			}
+		}
+
+		if(player.isColliding(astroid))
+		{
+			println("Player hit by astroid");
+			player.isDead = true;
 		}
 	}
 }

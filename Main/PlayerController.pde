@@ -13,22 +13,31 @@ class PlayerController
 		moveController = new MoveController(player);
 		projectileController = new ProjectileController();
 		audioController = new AudioController();
-		audioController.loadSound("zapsplat_science_fiction_weapon_gun_shoot_003_32196.wav");
-		audioController.volumeSound("zapsplat_science_fiction_weapon_gun_shoot_003_32196.wav", 0.025);
+		audioController.loadSound("Sound/weapon_gun_shoot.wav");
+		audioController.volumeSound("Sound/weapon_gun_shoot.wav", 0.009);
+
+		audioController.loadSound("Sound/explosion_big_powerful.wav");
+		audioController.volumeSound("Sound/explosion_big_powerful.wav", 0.1);
 
 		this.rings = rings;
 	}
 
 	void update()
 	{
-		moveController.lineMove(getInputVector());
-		moveController.lineStep(getInputVector(), rings);
-		projectileController.update();
+		if (player.isPlayable)
+		{
+			moveController.orbit(getInputVector(), 0, 0);
+			moveController.lineStep(getInputVector(), rings);
+			projectileController.update();
 
-        if (isSpacePressed)
-			shoot();
+			if (isSpacePressed)
+				shoot();
 
-		draw();
+			if (player.isDead)
+				die(player);
+			else
+				draw();
+		}
 	}
 
 	void draw()
@@ -47,16 +56,20 @@ class PlayerController
 
 		if (currentTime - lastShotTime > player.fireCooldown)
 		{
-			audioController.stopSound("zapsplat_science_fiction_weapon_gun_shoot_003_32196.wav");
-			audioController.playSound("zapsplat_science_fiction_weapon_gun_shoot_003_32196.wav");
+			audioController.stopSound("Sound/weapon_gun_shoot.wav");
+			audioController.playSound("Sound/weapon_gun_shoot.wav");
 			
 			projectileController.spawnBullet(player.position, 5000, BulletType.player);
 			lastShotTime = currentTime;
 		}
     }
 
-    void die()
+    void die(Player player)
     {
-
+		audioController.playSound("Sound/explosion_big_powerful.wav");
+		
+		Animation animation = new Animation(100f, player.position, 0, 1.5, false);
+		Animator.animate(animation, "Explosion");
+		player.isPlayable = false;
     }
 }
