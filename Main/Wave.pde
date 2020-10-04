@@ -40,6 +40,9 @@ public class Wave
 
 	void update()
 	{
+
+		projectileController.update();
+		
 		for (int i = 0; i < enemies.size(); ++i) 
 		{
 			Enemy enemy = enemies.get(i);
@@ -52,8 +55,6 @@ public class Wave
 
 			if(enemy.mode == EnemyMode.isFighting)
 				shoot(enemy);
-
-			projectileController.update();
 
 			push();
 				translate(enemy.position.x, enemy.position.y);
@@ -196,7 +197,7 @@ public class Wave
 			//audioController.stopSound("Sound/weapon_gun_shoot.wav");
 			//audioController.playSound("Sound/weapon_gun_shoot.wav");
 			
-			projectileController.spawnBullet(enemy.position, 150, BulletType.enemy, player);
+			projectileController.spawnBullet(enemy.position, 750, BulletType.enemy, player.position);
 			enemy.lastShotTime = currentTime;
 		}
 		

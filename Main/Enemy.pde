@@ -29,7 +29,7 @@ public class Enemy extends Entity
         this.spawnTime = millis();
         this.circleTime = 25000;
         this.patrolTime = random(1000,5000);
-        this.fireCooldown = random(1000, 3000);
+        this.fireCooldown = random(2000, 6000);
         this.size = 50;
         this.sprite = Assets.sprites.get("Enemy");
     }
