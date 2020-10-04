@@ -21,6 +21,7 @@ class Player extends Entity
     Player (Ring currentRing) 
     {
         this.currentRing = currentRing;
+        this.health = 100;
         this.size = 40;
         this.jumpCooldown = 250;
         this.fireCooldown = 150;

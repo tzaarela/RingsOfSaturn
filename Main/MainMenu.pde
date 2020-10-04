@@ -120,7 +120,7 @@ class MainMenu implements Screen
 
 	void showHighscore()
 	{
-		gameState = GameState.inHighscore;
+		gameState = GameState.inGameOver;
 	}
 
 	void options()

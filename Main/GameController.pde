@@ -8,6 +8,7 @@ public class GameController
     ScoreController scoreController;
     AnimationController animationController;
     AstroidController astroidController;
+    HudController hudController;
 
     PImage[] animatedBackground;
     int frame;
@@ -20,6 +21,7 @@ public class GameController
         collisionController = new CollisionController();
         animationController = new AnimationController();
         astroidController = new AstroidController(environmentController.getRings());
+        hudController = new HudController();
         loadBackground();
 
     }
@@ -37,6 +39,8 @@ public class GameController
         animationController.update();
         waveController.update();
         astroidController.update();
+        hudController.update(playerController.player);
+
         collisionController.update
         (
             playerController.player,

@@ -6,12 +6,13 @@ class ScreenController
 	PauseMenu pauseMenu;
 	Highscore highscore;
 	Game game;
+	GameOver gameOver;
 
 	ScreenController() 
 	{
 		mainMenu = new MainMenu();
 		pauseMenu = new PauseMenu();
-		highscore = new Highscore();
+		gameOver = new GameOver();
 		game = new Game();
 
 		audioController = new AudioController();
@@ -39,8 +40,8 @@ class ScreenController
 				currentScreen = pauseMenu;
             break;
 
-            case inHighscore:
-				currentScreen = highscore;
+            case inGameOver:
+				currentScreen = gameOver;
             break;
         }
 

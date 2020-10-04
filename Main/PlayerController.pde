@@ -111,5 +111,6 @@ class PlayerController
 		Animation animation = new Animation(100f, player.position, 0, 1.5, false);
 		Animator.animate(animation, "Explosion");
 		player.isPlayable = false;
+		gameState = GameState.inGameOver;
     }
-}
+}    

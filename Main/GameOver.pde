@@ -4,12 +4,14 @@ class GameOver implements Screen
 	ArrayList<MenuItem> menuItems;
 	float moveTime;
 	float moveCooldown;
+	Highscore highscore;
 
 	public GameOver() 
 	{
 		font = createFont("Font/alienleague.ttf", 72);
 		menuItems = createMenuItems();
 		moveCooldown = 200;
+		highscore = new Highscore();
 
 		textFont(font);
 		textAlign(CENTER, CENTER);
@@ -17,6 +19,8 @@ class GameOver implements Screen
 
 	void update()
 	{
+		highscore.draw();
+
 		drawMenuItems();
 		moveSelection();
 		pressSelection();  
