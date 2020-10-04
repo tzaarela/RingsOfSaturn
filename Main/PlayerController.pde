@@ -64,9 +64,7 @@ class PlayerController
 			player.teleportAnimation = animation;
 		}
 		else if (player.teleportAnimation == null)
-		{
-			println("input x: " + input.x);
-			
+		{		
 			if (input.x == 0)
 				image(player.sprite, 0, 0);	
 
@@ -76,6 +74,7 @@ class PlayerController
 			else if (input.x > 0)
 				image(player.spriteRight, 0, 0);	
 		}
+		
 		else if (player.teleportAnimation.isDone)
 		{
 			if (input.x == 0)
@@ -100,7 +99,7 @@ class PlayerController
 			audioController.stopSound("Sound/weapon_gun_shoot.wav");
 			audioController.playSound("Sound/weapon_gun_shoot.wav");
 			
-			projectileController.spawnBullet(player.position, 5000, BulletType.player);
+			projectileController.spawnBullet(player.position, 5000, BulletType.player, null);
 			lastShotTime = currentTime;
 		}
     }

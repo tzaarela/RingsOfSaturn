@@ -46,9 +46,11 @@ class ProjectileController
 
 				case enemy:
 					fill(255);
-					stroke(200);
-					strokeWeight(10);
-					ellipse(projectile.position.x, projectile.position.y, projectile.size, projectile.size);
+					stroke(#89F3FF);
+					strokeWeight(15);
+					translate(projectile.position.x, projectile.position.y);
+					rotate(projectile.velocity.heading());
+					ellipse(0, 0, projectile.size, projectile.size);
 					break;
 			}
 		pop();
@@ -59,26 +61,28 @@ class ProjectileController
 		projectile.position.add(PVector.mult(projectile.velocity, deltaTime * velocityMultiplier));
     }
 
-	void spawnBullet(PVector startPosition, float speed, BulletType bulletType)
+	void spawnBullet(PVector startPosition, float speed, BulletType bulletType, Entity target)
 	{
 		this.bulletType = bulletType;
 		PVector direction = new PVector();
 
 		switch (bulletType) 
 		{
-			case player:
-				
+			case player:				
 				PVector mousePosition = new PVector(mouseX - resolutionX / 2, mouseY - resolutionY / 2);
 				direction = mousePosition.sub(startPosition).normalize();
 				break;
 
 			case enemy:
-				direction = startPosition.copy().mult(-1).normalize();
+				direction = target.position.copy().normalize();
 				break;
 		}
 
 		PVector velocity = direction.mult(speed);
 
+		println("Start Position X: " + startPosition.x);
+		println("Start Position Y: " + startPosition.y);
+		println(" ");
         Projectile projectile = new Projectile(startPosition.copy(), velocity);
 		projectiles.add(projectile);
 	}

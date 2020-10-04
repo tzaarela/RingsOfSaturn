@@ -8,7 +8,6 @@ public class Wave
 	float totalEnemies;
 	float level;
 	float waveEndTimer;
-	float lastShotTime;
 
 	boolean hasEnemiesSpawned;
 	boolean hasCreatedEnemies;
@@ -44,21 +43,21 @@ public class Wave
 		for (int i = 0; i < enemies.size(); ++i) 
 		{
 			Enemy enemy = enemies.get(i);
+
 			if(enemy.isDead)
 			{
 				destroyEnemy(enemy);
 				continue;
 			}
 
+			if(enemy.mode == EnemyMode.isFighting)
+				shoot(enemy);
+
+			projectileController.update();
+
 			push();
 				translate(enemy.position.x, enemy.position.y);
 				moveEnemy(enemy);
-				// if(enemy.mode == EnemyMode.isCircling)
-				// {	
-				// 	projectileController.update();
-				// 	//shoot(enemy);
-				// }
-
 				draw(enemy);
 			pop();	
 		}
@@ -192,13 +191,14 @@ public class Wave
     {
 		float currentTime = millis();		
 
-		if (currentTime - lastShotTime > enemy.fireCooldown)
+		if (currentTime - enemy.lastShotTime > enemy.fireCooldown)
 		{
 			//audioController.stopSound("Sound/weapon_gun_shoot.wav");
 			//audioController.playSound("Sound/weapon_gun_shoot.wav");
 			
-			projectileController.spawnBullet(enemy.position, 1, BulletType.enemy);
-			lastShotTime = currentTime;
+			projectileController.spawnBullet(enemy.position, 150, BulletType.enemy, player);
+			enemy.lastShotTime = currentTime;
 		}
+		
     }
 }

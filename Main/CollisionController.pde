@@ -29,7 +29,6 @@ class CollisionController
 
 		if(player.isColliding(astroid))
 		{
-			println("Player hit by astroid");
 			player.isDead = true;
 		}
 	}
