@@ -22,7 +22,7 @@ class Player extends Entity
     {
         this.currentRing = currentRing;
         this.health = 100;
-        this.size = 40;
+        this.size = 50;
         this.jumpCooldown = 250;
         this.fireCooldown = 150;
         this.isPlayable = true;

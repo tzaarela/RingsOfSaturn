@@ -46,10 +46,10 @@ class ProjectileController
 
 				case enemy:
 					fill(255);
-					stroke(#89F3FF);
-					strokeWeight(15);
+					stroke(255, 0, 0);
+					strokeWeight(2);
 					translate(projectile.position.x, projectile.position.y);
-					ellipse(0, 0, projectile.size, projectile.size);
+					ellipse(0, 0, projectile.size * 7, projectile.size * 7);
 					break;
 			}
 		pop();

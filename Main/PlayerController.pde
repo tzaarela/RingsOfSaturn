@@ -74,7 +74,7 @@ class PlayerController
 			else if (input.x > 0)
 				image(player.spriteRight, 0, 0);	
 		}
-		
+
 		else if (player.teleportAnimation.isDone)
 		{
 			if (input.x == 0)

@@ -46,6 +46,7 @@ public class GameController
             playerController.player,
             waveController.currentWave.enemies,
             playerController.projectileController.projectiles,
+            waveController.currentWave.projectileController.projectiles,
             astroidController.astroid
         );
     }
