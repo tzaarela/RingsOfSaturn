@@ -22,17 +22,17 @@
 
 ## [Assets created by us]
   
-**Animations**
+**Animations**  
 Background
 Enemy Spawning
 Player Teleport
 Explosions
 Player Turning)
 
-**Sprites**
+**Sprites**  
 Astroid  
 
-**UI**
+**UI**  
 Title Screen
 
 
@@ -42,14 +42,14 @@ We have modified these sprites:
 [Player ship] http://rolfbertzart.blogspot.com/2015/05/spaceship.html  
 [Enemy ship] https://www.pngitem.com/middle/owbJwi_pixel-art-top-down-airplane-hd-png-download/  
   
-**Music** 
+**Music**  
 Signal To Noise by by Scott Buckley – www.scottbuckley.com.au  
   
-**Sound Effects** 
+**Sound Effects**  
 [Player weapon] https://www.zapsplat.com/music/science-fiction-weapon-gun-shoot-powerful-1/  
 [Player explosion] https://www.zapsplat.com/music/big-powerful-internal-explosion-2/  
 [Enemy explosion] https://www.zapsplat.com/music/explosion-deep-underwater-distant-explosion/  
 [Player teleporting] https://www.zapsplat.com/music/designed-cinematic-whoosh-hit-into-a-collapsing-explosion-and-long-tail/  
 
-**Font**
+**Font**  
 https://www.dafont.com/alien-league.font
