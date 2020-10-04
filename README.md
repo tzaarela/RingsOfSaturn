@@ -2,8 +2,8 @@
 
 [Miro Board](https://miro.com/app/board/o9J_klxyRd0=/)
 
-## [Day 6 - Video ]
-[![Alternate Text]({https://i.imgur.com/K4zjdue.png})]({https://youtu.be/0BwmRPBZaNg} "Player teleport")
+## [Day 6 - GIF ]
+<img src="https://github.com/danielalexandernielsen/Yrgo/blob/master/Daniel_00_SideProjects/GIF/RingsOfSaturn.gif?raw=true">
 
 ## [Day 5 - Screenshot]
 <img src="https://i.imgur.com/K4zjdue.png">
