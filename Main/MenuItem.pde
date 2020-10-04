@@ -3,6 +3,8 @@ class MenuItem
 	String text;
 	float x;
 	float y;
+	float xOffset = -8;
+	float yOffset = 3;
 	boolean isSelected;
 	PImage selectedImage;
 
@@ -20,7 +22,7 @@ class MenuItem
 		{
 			push();
 				fill(57, 83, 140);
-				image(selectedImage, x, y);
+				image(selectedImage, x + xOffset, y + yOffset);
 			pop();
 		}
 		text(text, x, y);

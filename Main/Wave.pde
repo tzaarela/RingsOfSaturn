@@ -36,6 +36,9 @@ public class Wave
 
 		audioController.loadSound("Sound/new_enemy_wave.wav");
 		audioController.volumeSound("Sound/new_enemy_wave.wav", 0.3);
+
+		audioController.loadSound("Sound/enemy_shooting.wav");
+		audioController.volumeSound("Sound/enemy_shooting.wav", 0.05);
 	}
 
 	void update()
@@ -194,8 +197,8 @@ public class Wave
 
 		if (currentTime - enemy.lastShotTime > enemy.fireCooldown)
 		{
-			//audioController.stopSound("Sound/weapon_gun_shoot.wav");
-			//audioController.playSound("Sound/weapon_gun_shoot.wav");
+			//audioController.stopSound("Sound/enemy_shooting.wav");
+			audioController.playSound("Sound/enemy_shooting.wav");
 			
 			projectileController.spawnBullet(enemy.position, 750, BulletType.enemy, player.position);
 			enemy.lastShotTime = currentTime;
