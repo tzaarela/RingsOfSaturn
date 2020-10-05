@@ -1,4 +1,4 @@
-boolean isLeftPressed, isRightPressed, isUpPressed, isDownPressed, isSpacePressed, isEnterPressed;
+boolean isLeftPressed, isRightPressed, isUpPressed, isDownPressed, isSpacePressed, isEnterPressed, isLeftMousePressed;
 
 void keyPressed()
 {
@@ -8,6 +8,18 @@ void keyPressed()
 void keyReleased()
 {
     setInputs(keyCode, false);
+}
+
+void mousePressed() 
+{
+  if (mouseButton == LEFT) 
+      setInputs(1337, true);
+}
+
+void mouseReleased() 
+{
+  if (mouseButton == LEFT) 
+      setInputs(1337, false);
 }
 
 PVector getInputVector()
@@ -48,6 +60,10 @@ void setInputs(int keyCode, boolean isPressed)
 
         case ENTER :
         isEnterPressed = isPressed;
+        break;
+
+        case 1337:
+        isLeftMousePressed = isPressed;
         break;
     }
 }

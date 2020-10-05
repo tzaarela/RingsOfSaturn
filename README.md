@@ -3,11 +3,11 @@
 <br>
 
 ## [Control Scheme]
-W = Jump in one ring<br>
-S = Jump out one ring<br>
-A = Go left<br>
-D = Go right<br>
-Space = Shoot<br>
+W or UP Arrow = Jump in one ring<br>
+S or Down Arrow = Jump out one ring<br>
+A or LEFT Arrow = Go left<br>
+D or RIGHY Arrow = Go right<br>
+LEFT MOUSE or SPACE = Shoot<br>
 ENTER = Press menu item<br>
 
 Use mouse or trackpad to aim.
@@ -33,14 +33,15 @@ Use mouse or trackpad to aim.
 ## [Assets created by us]
   
 **Animations**  
-Background
-Enemy Spawning
-Player Teleport
-Explosions
-Player Turning)
+Background  
+Enemy Spawning  
+Player Teleport  
+Explosions  
+Player Turning  
 
 **Sprites**  
 Astroid  
+Crosshair  
 
 **UI**  
 Title Screen
@@ -61,6 +62,7 @@ Signal To Noise by by Scott Buckley – www.scottbuckley.com.au
 [Enemy shooting] https://www.zapsplat.com/music/laser-noise-synth-burst-vintage/  
 [Enemy explosion] https://www.zapsplat.com/music/explosion-deep-underwater-distant-explosion/  
 [Player teleporting] https://www.zapsplat.com/music/designed-cinematic-whoosh-hit-into-a-collapsing-explosion-and-long-tail/  
+[Meny selection] https://www.zapsplat.com/music/science-fiction-style-menu-select-00/  
 
 **Font**  
 https://www.dafont.com/alien-league.font
