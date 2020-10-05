@@ -6,6 +6,7 @@ class GameOver implements Screen
 	float moveCooldown;
 	Highscore highscore;
 	int frame;
+	AudioController audioController;
 
 	public GameOver() 
 	{
@@ -13,6 +14,10 @@ class GameOver implements Screen
 		menuItems = createMenuItems();
 		moveCooldown = 200;
 		highscore = new Highscore();
+
+		audioController = new AudioController();
+		audioController.loadSound("Sound/meny_select.wav");
+		audioController.volumeSound("Sound/meny_select.wav", 0.04);
 
 		textFont(font);
 		textAlign(CENTER, CENTER);
@@ -55,6 +60,7 @@ class GameOver implements Screen
 				{
 					if(menuItems.get(i).isSelected)
 					{
+						audioController.playSound("Sound/meny_select.wav");
 						menuItems.get(i).isSelected = false;
 						menuItems.get(i - 1 == -1 ? 1 : i - 1).isSelected = true;
 						break;
@@ -68,6 +74,7 @@ class GameOver implements Screen
 				{
 					if(menuItems.get(i).isSelected)
 					{
+						audioController.playSound("Sound/meny_select.wav");
 						menuItems.get(i).isSelected = false;
 						menuItems.get(i + 1 == 2 ? 0 : i + 1).isSelected = true;
 						break;

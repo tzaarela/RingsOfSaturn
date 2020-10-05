@@ -5,6 +5,7 @@ class MainMenu implements Screen
 	ArrayList<MenuItem> menuItems;
 	float moveTime;
 	float moveCooldown;
+	AudioController audioController;
 
 	public MainMenu () 
 	{
@@ -12,6 +13,10 @@ class MainMenu implements Screen
 		font = createFont("Font/alienleague.ttf", 72);
 		menuItems = createMenuItems();
 		moveCooldown = 200;
+
+		audioController = new AudioController();
+		audioController.loadSound("Sound/meny_select.wav");
+		audioController.volumeSound("Sound/meny_select.wav", 0.02);
 
 		textFont(font);
 		textAlign(CENTER, CENTER);
@@ -46,6 +51,7 @@ class MainMenu implements Screen
 				{
 					if(menuItems.get(i).isSelected)
 					{
+						audioController.playSound("Sound/meny_select.wav");
 						menuItems.get(i).isSelected = false;
 						menuItems.get(i - 1 == -1 ? 3 : i - 1).isSelected = true;
 						break;
@@ -59,6 +65,7 @@ class MainMenu implements Screen
 				{
 					if(menuItems.get(i).isSelected)
 					{
+						audioController.playSound("Sound/meny_select.wav");
 						menuItems.get(i).isSelected = false;
 						menuItems.get(i + 1 == 4 ? 0 : i + 1).isSelected = true;
 						break;
