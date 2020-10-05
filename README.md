@@ -55,8 +55,9 @@ We have modified these sprites:
 Signal To Noise by by Scott Buckley – www.scottbuckley.com.au  
   
 **Sound Effects**  
-[Player weapon] https://www.zapsplat.com/music/science-fiction-weapon-gun-shoot-powerful-1/  
+[Player shooting] https://www.zapsplat.com/music/science-fiction-weapon-gun-shoot-powerful-1/  
 [Player explosion] https://www.zapsplat.com/music/big-powerful-internal-explosion-2/  
+[Enemy shooting] https://www.zapsplat.com/music/laser-noise-synth-burst-vintage/  
 [Enemy explosion] https://www.zapsplat.com/music/explosion-deep-underwater-distant-explosion/  
 [Player teleporting] https://www.zapsplat.com/music/designed-cinematic-whoosh-hit-into-a-collapsing-explosion-and-long-tail/  
 
