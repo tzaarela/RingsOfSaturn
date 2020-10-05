@@ -76,7 +76,12 @@ public class MoveController
 				entity.currentRing = rings[entity.currentRing.level + 1];
 				stepTime = currentTime;
 				return true;
-			}		
+			}
+
+			else if (input.y > 0 && entity.currentRing.level < rings.length - 1)
+			{
+				
+			}
 		}
 
 		return false;

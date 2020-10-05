@@ -18,6 +18,9 @@ class PlayerController
 		moveController = new MoveController(player);
 		projectileController = new ProjectileController();
 
+		float delayFirstShot = millis() + 3000;
+		lastShotTime = delayFirstShot;
+
 		audioController = new AudioController();
 		audioController.loadSound("Sound/weapon_gun_shoot.wav");
 		audioController.volumeSound("Sound/weapon_gun_shoot.wav", 0.025);
