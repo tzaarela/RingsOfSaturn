@@ -8,29 +8,30 @@ class Highscore
 	Highscore() 
 	{
 		highscores = getHighscore();
-		font = createFont("Font/alienleaguebold.ttf", 72);
+		font = createFont("Font/alienleaguebold.ttf", 42);
 	}
 
 
 	void draw()
 	{
 		translate(resolutionX / 2, resolutionY / 2);
-		rectMode(CENTER);
-		textAlign(LEFT) ;
-		fill(0);
-		rect(-100, 0, 300, 500);
+		rectMode(CORNER);
+		fill(color(0, 0, 0, 20));
+		rect(-400, -250, 800, 500);
 		fill(255);
-		text("Highscore", 0, 10);
-		text("Name", 0, 100);
-		text("Time Survived", 0, 100);
+		text("Highscore", -380, -180);
+		text("Name", -380, -80);
+		text("Time Survived", -100, -80);
 
+		push();
+		textSize(30);
 		for (int i = 0; i < highscores.size(); ++i) 
 		{
 			Score score = highscores.get(i);
-
-			text(score.name, 0, 20 + 100 * i);
-			text(score.surviveTime, 0, 20 + 100 * i);
+			text(score.name, -380, 100 * i);
+			text(score.surviveTime, -100, 100 * i);
 		}
+		pop();
 	}
 
 	ArrayList<Score> getHighscore()
