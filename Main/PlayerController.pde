@@ -33,8 +33,7 @@ class PlayerController
 	void update()
 	{
 		if (player.isPlayable)
-		{
-			
+		{		
 			moveController.orbit(getInputVector(), 0, 0);
 			hasTeleported = moveController.teleport(getInputVector(), rings);
 			projectileController.update();

@@ -124,7 +124,7 @@ class GameOver implements Screen
 		ArrayList<MenuItem> items = new ArrayList<MenuItem>();
 		items.add(new MenuItem("PLAY AGAIN", highlight, 0, 300));
 		items.get(0).isSelected = true;
-		items.add(new MenuItem("BACK TO MAIN MENU", highlight, 0, 380));
+		items.add(new MenuItem("BACK TO MENU", highlight, 0, 380));
 		return items;
 	}
 
