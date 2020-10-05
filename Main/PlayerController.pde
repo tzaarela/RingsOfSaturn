@@ -18,7 +18,7 @@ class PlayerController
 		moveController = new MoveController(player);
 		projectileController = new ProjectileController();
 
-		float delayFirstShot = millis() + 3000;
+		float delayFirstShot = millis() + 100;
 		lastShotTime = delayFirstShot;
 
 		audioController = new AudioController();
