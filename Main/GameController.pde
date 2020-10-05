@@ -21,7 +21,6 @@ public class GameController
         animationController = new AnimationController();
         astroidController = new AstroidController(environmentController.getRings());
         hudController = new HudController();
-        currentTime = millis();
     }
 
     public void update()
