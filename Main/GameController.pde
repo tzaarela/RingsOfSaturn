@@ -36,7 +36,7 @@ public class GameController
         animationController.update();
         waveController.update();
         astroidController.update();
-        hudController.update(playerController.player);
+        hudController.update(playerController.player, waveController.currentWave.level);
 
         collisionController.update
         (

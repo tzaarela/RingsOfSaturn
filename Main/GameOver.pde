@@ -81,7 +81,7 @@ class GameOver implements Screen
 
 	void pressSelection()
 	{
-		if(isSpacePressed)
+		if(isEnterPressed)
 		{
 			MenuItem menuItem = getSelectedMenuItem();
 			

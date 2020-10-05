@@ -1,4 +1,4 @@
-boolean isLeftPressed, isRightPressed, isUpPressed, isDownPressed, isSpacePressed;
+boolean isLeftPressed, isRightPressed, isUpPressed, isDownPressed, isSpacePressed, isEnterPressed;
 
 void keyPressed()
 {
@@ -44,6 +44,10 @@ void setInputs(int keyCode, boolean isPressed)
 
         case ' ' :
         isSpacePressed = isPressed;
+        break;
+
+        case ENTER :
+        isEnterPressed = isPressed;
         break;
     }
 }
