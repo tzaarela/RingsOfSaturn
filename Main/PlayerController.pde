@@ -8,6 +8,9 @@ class PlayerController
 	ProjectileController projectileController;
 	AudioController audioController;
 
+	float surviveTime;
+	float frameTime;
+
 	PlayerController(Ring[] rings)
 	{
 		this.rings = rings;
@@ -31,9 +34,11 @@ class PlayerController
 	{
 		if (player.isPlayable)
 		{
+			
 			moveController.orbit(getInputVector(), 0, 0);
 			hasTeleported = moveController.teleport(getInputVector(), rings);
 			projectileController.update();
+			saveSurviveTime();
 
 			if (isSpacePressed)
 				shoot();
@@ -88,6 +93,16 @@ class PlayerController
 		}
 				
 		pop();	
+	}
+
+	void saveSurviveTime()
+	{
+		float currentTime = millis();
+		if(currentTime - frameTime > 1000)
+		{
+			surviveTime++;
+			frameTime = currentTime;
+		}
 	}
 
 	void shoot()

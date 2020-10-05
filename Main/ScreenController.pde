@@ -27,9 +27,13 @@ class ScreenController
 	{
 		switch (gameState)
         {
+			case newGame:
+				currentScreen = game;
+				game.startGame();
+			break;
+			
             case inGame:
                 currentScreen = game;
-				game.startGame();
             break;
 
             case inMainMenu:

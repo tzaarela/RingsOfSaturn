@@ -4,6 +4,7 @@ class Highscore
 {
 	ArrayList<Score> highscores;
 	PFont font;
+	int frame;
 
 	Highscore() 
 	{
@@ -14,9 +15,14 @@ class Highscore
 
 	void draw()
 	{
-		translate(resolutionX / 2, resolutionY / 2);
+		drawHighscore();
+	}
+
+	void drawHighscore()
+	{
 		rectMode(CORNER);
-		fill(color(0, 0, 0, 20));
+		textAlign(CORNER);
+		fill(color(0, 0, 0, 100));
 		rect(-400, -250, 800, 500);
 		fill(255);
 		text("Highscore", -380, -180);

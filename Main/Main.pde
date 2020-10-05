@@ -29,6 +29,7 @@ void setup()
   frameRate(120);
   assetLoader.loadAnimations();
   assetLoader.loadSprites();
+  assetLoader.loadBackground();
 }
 
 void draw() 

@@ -1,8 +1,6 @@
 class Game implements Screen 
 {
 	GameController gameController;
-	boolean isStarted;
-	boolean restart;
 
 	public Game() 
 	{
@@ -11,11 +9,8 @@ class Game implements Screen
 
 	void startGame()
 	{	
-		if(!isStarted)
-		{
-			gameController = new GameController();
-			isStarted = true;
-		}
+		gameController = new GameController();
+		gameState = GameState.inGame;
 	}
 
 	void update()

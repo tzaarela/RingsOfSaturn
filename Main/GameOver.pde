@@ -5,6 +5,7 @@ class GameOver implements Screen
 	float moveTime;
 	float moveCooldown;
 	Highscore highscore;
+	int frame;
 
 	public GameOver() 
 	{
@@ -19,8 +20,15 @@ class GameOver implements Screen
 
 	void update()
 	{
+		translate(resolutionX / 2, resolutionY / 2);
+
+		int spriteCount = Assets.background.size();
+        frame = (frame+1) % spriteCount;
+        background(Assets.background.get(frame));
+
 		highscore.draw();
 
+		textAlign(CENTER,CENTER);
 		drawMenuItems();
 		moveSelection();
 		pressSelection();  
@@ -61,7 +69,7 @@ class GameOver implements Screen
 					if(menuItems.get(i).isSelected)
 					{
 						menuItems.get(i).isSelected = false;
-						menuItems.get(i + 1 == 1 ? 0 : i + 1).isSelected = true;
+						menuItems.get(i + 1 == 2 ? 0 : i + 1).isSelected = true;
 						break;
 					}
 				}
@@ -106,15 +114,15 @@ class GameOver implements Screen
 	ArrayList<MenuItem> createMenuItems()
 	{
 		ArrayList<MenuItem> items = new ArrayList<MenuItem>();
-		items.add(new MenuItem("PLAY AGAIN", resolutionX / 2, 500));
+		items.add(new MenuItem("PLAY AGAIN", 0, 300));
 		items.get(0).isSelected = true;
-		items.add(new MenuItem("BACK TO MAIN MENU", resolutionX / 2, 580));
+		items.add(new MenuItem("BACK TO MAIN MENU", 0, 380));
 		return items;
 	}
 
 	void playAgain()
 	{
-		gameState = GameState.inGame;
+		gameState = GameState.newGame;
 	}
 
 	void backToMainMenu()

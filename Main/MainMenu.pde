@@ -115,7 +115,7 @@ class MainMenu implements Screen
 
 	void startGame()
 	{
-		gameState = GameState.inGame;
+		gameState = GameState.newGame;
 	}
 
 	void showHighscore()
