@@ -1,4 +1,5 @@
 ## [ Rings of Saturn - by Jimmy Sareela & Daniel Nielsen ]
+[Miro Board](https://miro.com/app/board/o9J_klxyRd0=/)
 <br>
 
 ## [Control Scheme]
@@ -9,7 +10,6 @@ D = Go right<br>
 Space = Shoot<br>
 ENTER = Press menu item<br>
 
-[Miro Board](https://miro.com/app/board/o9J_klxyRd0=/)
 
 ## [Day 6 - GIF ]
 <img src="https://github.com/danielalexandernielsen/Yrgo/blob/master/Daniel_00_SideProjects/GIF/RingsOfSaturn.gif?raw=true">
