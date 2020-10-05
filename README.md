@@ -1,7 +1,6 @@
-## Rings of Saturn - by Jimmy Sareela & Daniel Nielsen
+## [ Rings of Saturn - by Jimmy Sareela & Daniel Nielsen ]
 <br>
-<br>
-<br>
+
 ## [Control Scheme]
 W = Jump in one ring<br>
 S = Jump out one ring<br>
