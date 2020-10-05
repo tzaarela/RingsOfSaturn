@@ -10,6 +10,7 @@ D = Go right<br>
 Space = Shoot<br>
 ENTER = Press menu item<br>
 
+Use mouse or trackpad to aim.
 
 ## [Day 6 - GIF ]
 <img src="https://github.com/danielalexandernielsen/Yrgo/blob/master/Daniel_00_SideProjects/GIF/RingsOfSaturn.gif?raw=true">
