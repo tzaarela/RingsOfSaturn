@@ -34,10 +34,8 @@ void setup()
 
 void draw() 
 {
-  
   calculateDeltaTime("START");
   screenController.update();
- 
 	calculateDeltaTime("END");
 }
 

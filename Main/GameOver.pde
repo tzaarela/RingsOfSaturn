@@ -113,10 +113,11 @@ class GameOver implements Screen
 
 	ArrayList<MenuItem> createMenuItems()
 	{
+		PImage highlight = Assets.sprites.get("MenuHighlightBlue");
 		ArrayList<MenuItem> items = new ArrayList<MenuItem>();
-		items.add(new MenuItem("PLAY AGAIN", 0, 300));
+		items.add(new MenuItem("PLAY AGAIN", highlight, 0, 300));
 		items.get(0).isSelected = true;
-		items.add(new MenuItem("BACK TO MAIN MENU", 0, 380));
+		items.add(new MenuItem("BACK TO MAIN MENU", highlight, 0, 380));
 		return items;
 	}
 

@@ -104,12 +104,13 @@ class MainMenu implements Screen
 
 	ArrayList<MenuItem> createMenuItems()
 	{
+		PImage highlightSprite = Assets.sprites.get("MenuHighlight");
 		ArrayList<MenuItem> items = new ArrayList<MenuItem>();
-		items.add(new MenuItem("START GAME", resolutionX / 2, 500));
+		items.add(new MenuItem("START GAME", highlightSprite , resolutionX / 2, 500));
 		items.get(0).isSelected = true;
-		items.add(new MenuItem("HIGH SCORE", resolutionX / 2, 580));
-		items.add(new MenuItem("OPTIONS", resolutionX / 2, 660));
-		items.add(new MenuItem("EXIT GAME", resolutionX / 2, 740));
+		items.add(new MenuItem("HIGH SCORE", highlightSprite, resolutionX / 2, 580));
+		items.add(new MenuItem("OPTIONS", highlightSprite, resolutionX / 2, 660));
+		items.add(new MenuItem("EXIT GAME", highlightSprite, resolutionX / 2, 740));
 		return items;
 	}
 

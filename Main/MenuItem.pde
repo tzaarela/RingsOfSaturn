@@ -8,12 +8,12 @@ class MenuItem
 	boolean isSelected;
 	PImage selectedImage;
 
-	MenuItem (String text, float x, float y) 
+	MenuItem (String text, PImage sprite, float x, float y) 
 	{
 		this.x = x;
 		this.y = y;
 		this.text = text;
-		selectedImage = loadImage("Menu/MenuHighlight.png");
+		selectedImage = sprite;
 	}
 
 	void draw()
