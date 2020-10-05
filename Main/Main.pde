@@ -20,16 +20,19 @@ void setup()
   surface.setLocation(0, 0);
   surface.setAlwaysOnTop(true);
   fullScreen();
-  mainInstance = this;
-  assetLoader = new AssetLoader();
-  screenController = new ScreenController();
-  gameState = GameState.inMainMenu;
   
-  imageMode(CENTER);
-  frameRate(120);
+  mainInstance = this;
+  gameState = GameState.inMainMenu;
+
+  assetLoader = new AssetLoader();
   assetLoader.loadAnimations();
   assetLoader.loadSprites();
   assetLoader.loadBackground();
+
+  screenController = new ScreenController();
+  
+  imageMode(CENTER);
+  frameRate(120);
 }
 
 void draw() 

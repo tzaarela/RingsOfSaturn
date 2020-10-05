@@ -45,8 +45,8 @@ class AssetLoader
 		Assets.loadSprites("PlayerTurnLeft", loadImage("Sprites/PlayerTurnLeft.png"));
 		Assets.loadSprites("PlayerTurnRight", loadImage("Sprites/PlayerTurnRight.png"));
 		Assets.loadSprites("Crosshair", loadImage("Sprites/Crosshair.png"));
-		Assets.loadSprites("MenuHighlight", loadImage("Sprites/Menu/MenuHighlight.png"));
-		Assets.loadSprites("MenuHighlightBlue", loadImage("Sprites/Menu/MenuHighlightBlue.png"));
+		Assets.loadSprites("MenuHighlight", loadImage("Menu/MenuHighlight.png"));
+		Assets.loadSprites("MenuHighlightBlue", loadImage("Menu/MenuHighlightBlue.png"));
 
 	}
 

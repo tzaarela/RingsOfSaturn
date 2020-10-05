@@ -13,17 +13,20 @@ class MenuItem
 		this.x = x;
 		this.y = y;
 		this.text = text;
-		selectedImage = sprite;
+		this.selectedImage = sprite;
 	}
 
 	void draw()
 	{
 		if(isSelected)
 		{
-			push();
-				fill(57, 83, 140);
-				image(selectedImage, x + xOffset, y + yOffset);
-			pop();
+				if(selectedImage != null)
+				{
+					push();
+					fill(57, 83, 140);
+					image(selectedImage, x + xOffset, y + yOffset);
+					pop();
+				}
 		}
 		text(text, x, y);
 	}
