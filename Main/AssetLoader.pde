@@ -44,6 +44,7 @@ class AssetLoader
 		Assets.loadSprites("Player", loadImage("Sprites/PlayerShip.png"));
 		Assets.loadSprites("PlayerTurnLeft", loadImage("Sprites/PlayerTurnLeft.png"));
 		Assets.loadSprites("PlayerTurnRight", loadImage("Sprites/PlayerTurnRight.png"));
+		Assets.loadSprites("Crosshair", loadImage("Sprites/Crosshair.png"));
 	}
 
 	void loadBackground()

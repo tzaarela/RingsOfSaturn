@@ -2,6 +2,7 @@ class HudController
 {
 	float health;
 	float currentWave;
+	float aliveTime;
 	PFont font;
 
 	HudController() 
@@ -10,10 +11,11 @@ class HudController
 		textFont(font);
 	}
 
-	void update(Player player, float currentWave)
+	void update(Player player, float currentWave, float aliveTime)
 	{
 		this.health = player.health;
 		this.currentWave = currentWave;
+		this.aliveTime = aliveTime;
 		draw();
 	}                  
 
@@ -21,6 +23,7 @@ class HudController
 	{
 		drawHealthBar();
 		drawCurrentWave();
+		drawCrosshair();
 	}
 
 	void drawHealthBar()
@@ -36,10 +39,21 @@ class HudController
 	void drawCurrentWave()
 	{
 		fill(color(0,0,0,100));
-		rect(-200, resolutionY / 2 - 400,  400, 200);
+		rect(-900, -500,  420, 200);
 		fill(255);
 		textAlign(CENTER, CENTER);
-		text("Wave: " + currentWave, 0, resolutionY / 2 - 350);
+		text("Wave: " + (int)currentWave, -700,  -450);
+		text("Time Alive: " + (int)aliveTime, -700,  -370);
+
+	}
+
+	void drawCrosshair()
+	{
+		push();
+		translate(-resolutionX / 2, -resolutionY / 2);
+		noCursor();
+		image(Assets.sprites.get("Crosshair"), mouseX, mouseY, 48, 49);
+		pop();
 	}
 	
 	

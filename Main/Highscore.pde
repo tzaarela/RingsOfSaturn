@@ -26,6 +26,7 @@ class Highscore
 		rect(-400, -250, 800, 500);
 		fill(255);
 		text("Highscore", -380, -180);
+		text("Your score:", -160, -180);
 		text("Name", -380, -80);
 		text("Time Survived", -100, -80);
 
