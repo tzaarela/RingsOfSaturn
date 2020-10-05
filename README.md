@@ -37,7 +37,7 @@ Background
 Enemy Spawning  
 Player Teleport  
 Explosions  
-Player Turning)  
+Player Turning  
 
 **Sprites**  
 Astroid  
