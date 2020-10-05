@@ -3,11 +3,11 @@
 <br>
 
 ## [Control Scheme]
-W = Jump in one ring<br>
-S = Jump out one ring<br>
-A = Go left<br>
-D = Go right<br>
-Space = Shoot<br>
+W or UP Arrow = Jump in one ring<br>
+S or Down Arrow = Jump out one ring<br>
+A or LEFT Arrow = Go left<br>
+D or RIGHY Arrow = Go right<br>
+LEFT MOUSE or SPACE = Shoot<br>
 ENTER = Press menu item<br>
 
 Use mouse or trackpad to aim.
