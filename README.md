@@ -1,13 +1,14 @@
-## [Rings of Saturn]
-
-
+## Rings of Saturn - by Jimmy Sareela & Daniel Nielsen
+<br>
+<br>
+<br>
 ## [Control Scheme]
 W = Jump in one ring<br>
 S = Jump out one ring<br>
-A = go left<br>
-D = go right<br>
-Space = shoot<br>
-ENTER = press menu item<br>
+A = Go left<br>
+D = Go right<br>
+Space = Shoot<br>
+ENTER = Press menu item<br>
 
 [Miro Board](https://miro.com/app/board/o9J_klxyRd0=/)
 
