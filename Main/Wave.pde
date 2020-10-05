@@ -197,7 +197,6 @@ public class Wave
 
 		if (currentTime - enemy.lastShotTime > enemy.fireCooldown)
 		{
-			//audioController.stopSound("Sound/enemy_shooting.wav");
 			audioController.playSound("Sound/enemy_shooting.wav");
 			
 			projectileController.spawnBullet(enemy.position, 750, BulletType.enemy, player.position);
