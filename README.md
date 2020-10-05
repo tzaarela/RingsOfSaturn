@@ -1,5 +1,14 @@
 ## [Rings of Saturn]
 
+
+## [Control Scheme]
+W = Jump in one ring<br>
+S = Jump out one ring<br>
+A = go left<br>
+D = go right<br>
+Space = shoot<br>
+ENTER = press menu item<br>
+
 [Miro Board](https://miro.com/app/board/o9J_klxyRd0=/)
 
 ## [Day 6 - GIF ]
