@@ -33,11 +33,11 @@ Use mouse or trackpad to aim.
 ## [Assets created by us]
   
 **Animations**  
-Background
-Enemy Spawning
-Player Teleport
-Explosions
-Player Turning)
+Background  
+Enemy Spawning  
+Player Teleport  
+Explosions  
+Player Turning)  
 
 **Sprites**  
 Astroid  
