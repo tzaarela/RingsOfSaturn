@@ -43,7 +43,7 @@ class PlayerController
 			projectileController.update();
 			saveSurviveTime();
 
-			if (isSpacePressed)
+			if (isSpacePressed || isLeftMousePressed)
 				shoot();
 
 			if (player.isDead)
