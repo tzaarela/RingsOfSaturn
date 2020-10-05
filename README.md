@@ -41,6 +41,7 @@ Player Turning)
 
 **Sprites**  
 Astroid  
+Crosshair  
 
 **UI**  
 Title Screen
@@ -61,6 +62,7 @@ Signal To Noise by by Scott Buckley – www.scottbuckley.com.au
 [Enemy shooting] https://www.zapsplat.com/music/laser-noise-synth-burst-vintage/  
 [Enemy explosion] https://www.zapsplat.com/music/explosion-deep-underwater-distant-explosion/  
 [Player teleporting] https://www.zapsplat.com/music/designed-cinematic-whoosh-hit-into-a-collapsing-explosion-and-long-tail/  
+[Meny selection] https://www.zapsplat.com/music/science-fiction-style-menu-select-00/  
 
 **Font**  
 https://www.dafont.com/alien-league.font
