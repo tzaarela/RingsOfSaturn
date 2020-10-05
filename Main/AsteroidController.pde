@@ -14,7 +14,7 @@ class AstroidController
 		moveController = new MoveController(astroid);
 
 		xRotation = random(50, 150);
-		yRotation = random(60, 170);
+		yRotation = random(xRotation, 170);
 	}
 
 	void update()
